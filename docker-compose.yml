@@ -1,5 +1,5 @@
 # =============================================================================
-# VETTA GEN 2 - DOCKER COMPOSE
+# AURISOLUTIONS GEN 2 - DOCKER COMPOSE
 # Orquestracao para desenvolvimento e producao
 # =============================================================================
 
@@ -13,7 +13,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    container_name: vetta-site-dev
+    container_name: auri-site-dev
     ports:
       - '3000:3000'
     volumes:
@@ -35,7 +35,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: vetta-site-prod
+    container_name: auri-site-prod
     ports:
       - '3000:3000'
     environment:

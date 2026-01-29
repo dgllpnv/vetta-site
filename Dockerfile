@@ -1,5 +1,5 @@
 # =============================================================================
-# VETTA GEN 2 - PRODUCTION DOCKERFILE
+# AURISOLUTIONS GEN 2 - PRODUCTION DOCKERFILE
 # Multi-stage build otimizado para Next.js 15
 # =============================================================================
 
