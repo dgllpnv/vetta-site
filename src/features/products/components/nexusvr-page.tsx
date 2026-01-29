@@ -263,7 +263,7 @@ export function NexusvrContent() {
                 </motion.div>
                 <div>
                   <p className="text-violet-400 font-medium text-lg">NexusVR</p>
-                  <p className="text-neutral-500 text-sm">Produto Vetta</p>
+                  <p className="text-neutral-500 text-sm">Produto Auri</p>
                 </div>
               </div>
 

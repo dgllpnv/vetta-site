@@ -11,37 +11,38 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Vetta | Estudio de Produtos Digitais',
-    template: '%s | Vetta',
+    default: 'AuriSolutions | Estúdio de Produtos Digitais',
+    template: '%s | AuriSolutions',
   },
   description:
-    'Transformamos ideias em produtos digitais de classe mundial. Conheca Acolheduc, NexusVR e Lumina - solucoes prontas para revolucionar seu mercado.',
+    'Transformamos ideias em produtos digitais de classe mundial. Conheça Acolheduc, NexusVR e Lumina - soluções prontas para revolucionar seu mercado.',
   keywords: [
     'produtos digitais',
     'software',
     'SaaS',
-    'gestao escolar',
+    'gestão escolar',
     'realidade virtual',
     'hospitalidade',
-    'Vetta',
+    'AuriSolutions',
+    'Auri',
     'Acolheduc',
     'NexusVR',
     'Lumina',
   ],
-  authors: [{ name: 'Vetta' }],
-  creator: 'Vetta',
+  authors: [{ name: 'AuriSolutions' }],
+  creator: 'AuriSolutions',
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
-    url: 'https://vetta.com.br',
-    siteName: 'Vetta',
-    title: 'Vetta | Estudio de Produtos Digitais',
+    url: 'https://aurisolutions.com.br',
+    siteName: 'AuriSolutions',
+    title: 'AuriSolutions | Estúdio de Produtos Digitais',
     description:
-      'Transformamos ideias em produtos digitais de classe mundial. Conheca Acolheduc, NexusVR e Lumina.',
+      'Transformamos ideias em produtos digitais de classe mundial. Conheça Acolheduc, NexusVR e Lumina.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vetta | Estudio de Produtos Digitais',
+    title: 'AuriSolutions | Estúdio de Produtos Digitais',
     description: 'Transformamos ideias em produtos digitais de classe mundial.',
   },
   robots: {

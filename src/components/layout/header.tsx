@@ -37,10 +37,10 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="group flex items-center gap-3">
             <div className="w-9 h-9 rounded-lg border border-neutral-700 flex items-center justify-center group-hover:border-neutral-500 transition-colors">
-              <span className="text-sm font-semibold text-white">V</span>
+              <span className="text-sm font-semibold text-white">A</span>
             </div>
             <span className="text-lg font-medium text-white tracking-tight">
-              Vetta
+              Auri
             </span>
           </Link>
 

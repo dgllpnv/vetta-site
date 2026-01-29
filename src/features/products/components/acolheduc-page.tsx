@@ -242,7 +242,7 @@ export function AcolheducContent() {
                 </motion.div>
                 <div>
                   <p className="text-emerald-400 font-medium text-lg">Acolheduc</p>
-                  <p className="text-neutral-500 text-sm">Produto Vetta</p>
+                  <p className="text-neutral-500 text-sm">Produto Auri</p>
                 </div>
               </div>
 

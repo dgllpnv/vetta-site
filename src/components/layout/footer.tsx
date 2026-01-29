@@ -25,10 +25,10 @@ export function Footer() {
           <div className="lg:col-span-5">
             <Link href="/" className="inline-flex items-center gap-3 group">
               <div className="w-10 h-10 rounded-lg border border-neutral-800 flex items-center justify-center group-hover:border-neutral-600 transition-colors">
-                <span className="text-sm font-semibold text-white">V</span>
+                <span className="text-sm font-semibold text-white">A</span>
               </div>
               <span className="text-xl font-medium text-white tracking-tight">
-                Vetta
+                AuriSolutions
               </span>
             </Link>
             <p className="mt-6 text-neutral-500 max-w-sm leading-relaxed">
@@ -74,10 +74,10 @@ export function Footer() {
             </p>
             <div className="space-y-4">
               <a
-                href="mailto:contato@vetta.com.br"
+                href="mailto:contato@aurisolutions.com.br"
                 className="block text-white hover:text-neutral-300 transition-colors"
               >
-                contato@vetta.com.br
+                contato@aurisolutions.com.br
               </a>
               <p className="text-neutral-600">
                 Segunda a sexta
@@ -99,7 +99,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-neutral-900 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="text-sm text-neutral-700">
-            © {new Date().getFullYear()} Vetta. Todos os direitos reservados.
+            © {new Date().getFullYear()} AuriSolutions. Todos os direitos reservados.
           </p>
           <p className="text-sm text-neutral-800">
             Feito com precisão técnica

@@ -112,7 +112,7 @@ export function ContactSection() {
 
             <div className="space-y-6">
               <motion.a
-                href="mailto:contato@vetta.com.br"
+                href="mailto:contato@aurisolutions.com.br"
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.3 }}
@@ -124,7 +124,7 @@ export function ContactSection() {
                 <div>
                   <p className="text-xs text-neutral-600 uppercase tracking-wide mb-1">Email</p>
                   <p className="text-white group-hover:text-neutral-200 transition-colors">
-                    contato@vetta.com.br
+                    contato@aurisolutions.com.br
                   </p>
                 </div>
               </motion.a>

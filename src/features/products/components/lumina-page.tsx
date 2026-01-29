@@ -222,7 +222,7 @@ export function LuminaContent() {
                 </motion.div>
                 <div>
                   <p className="text-amber-400 font-medium text-lg">Lumina</p>
-                  <p className="text-neutral-500 text-sm">Produto Vetta</p>
+                  <p className="text-neutral-500 text-sm">Produto Auri</p>
                 </div>
               </div>
 

@@ -116,7 +116,7 @@ export function HeroSection() {
               href="#sobre"
               className="px-8 py-4 text-neutral-400 text-sm font-medium hover:text-white transition-colors animated-underline"
             >
-              Conhecer a Vetta
+              Conhecer a Auri
             </a>
           </motion.div>
 

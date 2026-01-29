@@ -14,10 +14,10 @@ function generateSessionId(): string {
 function getSessionId(): string {
   if (typeof window === 'undefined') return '';
 
-  let sessionId = sessionStorage.getItem('vetta_session_id');
+  let sessionId = sessionStorage.getItem('auri_session_id');
   if (!sessionId) {
     sessionId = generateSessionId();
-    sessionStorage.setItem('vetta_session_id', sessionId);
+    sessionStorage.setItem('auri_session_id', sessionId);
   }
   return sessionId;
 }
