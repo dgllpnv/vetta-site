@@ -243,7 +243,7 @@ export function LuminaContent() {
               {/* CTAs */}
               <div className="flex flex-wrap gap-4">
                 <motion.a
-                  href="https://lumina.vetta.com.br"
+                  href="https://lumina.aurisolutions.com.br"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-xl overflow-hidden"
@@ -634,7 +634,7 @@ export function LuminaContent() {
 
             <div className="flex flex-wrap justify-center gap-4">
               <motion.a
-                href="https://lumina.vetta.com.br"
+                href="https://lumina.aurisolutions.com.br"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold text-lg rounded-xl overflow-hidden"

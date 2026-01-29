@@ -1,0 +1,71 @@
+# =============================================================================
+# VETTA GEN 2 - DOCKER COMPOSE
+# Orquestracao para desenvolvimento e producao
+# =============================================================================
+
+version: '3.9'
+
+services:
+  # ---------------------------------------------------------------------------
+  # Desenvolvimento (default)
+  # ---------------------------------------------------------------------------
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: vetta-site-dev
+    ports:
+      - '3000:3000'
+    volumes:
+      # Monta o codigo fonte para hot-reload
+      - .:/app
+      # Preserva node_modules do container
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+      - WATCHPACK_POLLING=true
+    profiles:
+      - dev
+
+  # ---------------------------------------------------------------------------
+  # Producao
+  # ---------------------------------------------------------------------------
+  production:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vetta-site-prod
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD', 'wget', '--no-verbose', '--tries=1', '--spider', 'http://localhost:3000/api/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    profiles:
+      - prod
+
+# =============================================================================
+# COMANDOS UTEIS:
+#
+# Desenvolvimento:
+#   docker compose --profile dev up --build
+#
+# Producao:
+#   docker compose --profile prod up -d --build
+#
+# Build de producao:
+#   docker compose --profile prod build
+#
+# Logs:
+#   docker compose logs -f
+#
+# Parar containers:
+#   docker compose --profile dev down
+#   docker compose --profile prod down
+# =============================================================================

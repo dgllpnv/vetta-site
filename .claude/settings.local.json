@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout:*)",
+      "Bash(npx next dev --port 3011)",
+      "Bash(curl:*)",
+      "Bash(npx prisma init)",
+      "Bash(npx prisma:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat: Setup completo para deploy Vercel + Railway\n\n- Configuração Prisma 5.22 com schema para PostgreSQL\n- APIs: /api/contact \\(leads\\), /api/analytics \\(métricas\\), /api/content \\(CMS\\)\n- Hook useAnalytics para tracking de pageviews e eventos\n- Formulário de contato integrado com API\n- Configuração vercel.json para deploy\n- Build otimizado e funcionando\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(npx next dev:*)",
+      "Bash(git commit:*)",
+      "Bash(gh api:*)",
+      "Bash(git ls-remote:*)"
+    ]
+  }
+}

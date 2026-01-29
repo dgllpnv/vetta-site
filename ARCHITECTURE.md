@@ -1,6 +1,6 @@
-# VETTA SITE - ARQUITETURA GEN 2
+# AURISOLUTIONS SITE - ARQUITETURA GEN 2
 
-> Primeira aplicacao construida seguindo o padrao Vetta Gen 2
+> Primeira aplicacao construida seguindo o padrao AuriSolutions Gen 2
 
 ## Stack Tecnologica
 

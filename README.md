@@ -1,10 +1,10 @@
-# Vetta - Site Institucional
+# AuriSolutions - Site Institucional
 
-Site institucional da Vetta, um Estúdio de Produtos Digitais que desenvolve soluções tecnológicas de alta qualidade.
+Site institucional da AuriSolutions, um Estúdio de Produtos Digitais que desenvolve soluções tecnológicas de alta qualidade.
 
-## Sobre a Vetta
+## Sobre a AuriSolutions
 
-A Vetta é um estúdio de produtos digitais com três produtos principais:
+A AuriSolutions é um estúdio de produtos digitais com três produtos principais:
 
 - **Acolheduc** - Plataforma de gestão escolar inteligente com IA
 - **NexusVR** - Plataforma de aulas em realidade virtual com Meta Quest 3
@@ -34,8 +34,8 @@ Antes de começar, certifique-se de ter instalado:
 ### 1. Clonar o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/vetta-site.git
-cd vetta-site
+git clone https://github.com/seu-usuario/aurisolutions-site.git
+cd aurisolutions-site
 ```
 
 ### 2. Instalar Dependências
@@ -82,7 +82,7 @@ npm run start
 ## Estrutura do Projeto
 
 ```
-vetta-site/
+aurisolutions-site/
 ├── src/
 │   ├── app/                    # Páginas (App Router do Next.js)
 │   │   ├── page.tsx            # Página inicial (Home)
@@ -163,7 +163,7 @@ Os dados dos produtos podem ser editados em:
 Os links para os sites oficiais dos produtos estão nos arquivos de página de cada produto:
 - Acolheduc: `https://acolheduc.com.br`
 - NexusVR: `https://nexusvr.com.br`
-- Lumina: `https://lumina.vetta.com.br`
+- Lumina: `https://lumina.aurisolutions.com.br`
 
 ---
 
@@ -325,7 +325,7 @@ curl http://localhost:3000/api/health
 ### Estrutura dos Arquivos Docker
 
 ```
-vetta-site/
+aurisolutions-site/
 ├── Dockerfile          # Build de produção (multi-stage)
 ├── Dockerfile.dev      # Build de desenvolvimento
 ├── docker-compose.yml  # Orquestração
@@ -367,7 +367,7 @@ vetta-site/
 6. (Opcional) Use PM2 para manter o processo rodando:
    ```bash
    npm install -g pm2
-   pm2 start npm --name "vetta-site" -- start
+   pm2 start npm --name "aurisolutions-site" -- start
    pm2 save
    pm2 startup
    ```
@@ -398,15 +398,15 @@ features/
 
 ## Licença
 
-Projeto proprietário da Vetta. Todos os direitos reservados.
+Projeto proprietário da AuriSolutions. Todos os direitos reservados.
 
 ---
 
 ## Contato
 
-- **Email:** contato@vetta.com.br
-- **Website:** https://vetta.com.br
+- **Email:** contato@aurisolutions.com.br
+- **Website:** https://aurisolutions.com.br
 
 ---
 
-**Vetta Gen 2 - 2026**
+**AuriSolutions Gen 2 - 2026**
