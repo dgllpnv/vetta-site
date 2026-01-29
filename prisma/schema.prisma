@@ -1,0 +1,117 @@
+// Vetta Site - Database Schema
+// PostgreSQL no Railway
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// =============================================
+// LEADS / CONTATOS
+// =============================================
+model Contact {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  company   String?
+  interest  String   // acolheduc, nexusvr, lumina, custom, other
+  message   String   @db.Text
+  status    ContactStatus @default(NEW)
+  notes     String?  @db.Text // Notas internas da equipe
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+  @@map("contacts")
+}
+
+enum ContactStatus {
+  NEW        // Novo lead
+  CONTACTED  // Já entrou em contato
+  QUALIFIED  // Lead qualificado
+  PROPOSAL   // Proposta enviada
+  WON        // Fechou negócio
+  LOST       // Perdido
+}
+
+// =============================================
+// CMS - CONTEÚDO DINÂMICO
+// =============================================
+model Content {
+  id        String   @id @default(cuid())
+  key       String   @unique // ex: "hero.title", "product.acolheduc.tagline"
+  title     String?
+  content   String   @db.Text
+  metadata  Json?    // Dados extras flexíveis
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([key])
+  @@index([isActive])
+  @@map("contents")
+}
+
+// =============================================
+// ANALYTICS - MÉTRICAS PRÓPRIAS
+// =============================================
+model PageView {
+  id        String   @id @default(cuid())
+  sessionId String   // ID único da sessão do usuário
+  page      String   // /acolheduc, /nexusvr, etc
+  referrer  String?  // De onde veio
+  userAgent String?
+  ip        String?
+  country   String?
+  city      String?
+  device    String?  // mobile, desktop, tablet
+  browser   String?
+  createdAt DateTime @default(now())
+
+  @@index([sessionId])
+  @@index([page])
+  @@index([createdAt])
+  @@map("page_views")
+}
+
+model Event {
+  id        String   @id @default(cuid())
+  sessionId String
+  name      String   // product_click, cta_click, form_start, form_submit
+  page      String
+  data      Json?    // { productId: "acolheduc", buttonText: "Explorar" }
+  createdAt DateTime @default(now())
+
+  @@index([sessionId])
+  @@index([name])
+  @@index([page])
+  @@index([createdAt])
+  @@map("events")
+}
+
+// =============================================
+// SESSÕES (para agrupar analytics)
+// =============================================
+model Session {
+  id           String   @id @default(cuid())
+  fingerprint  String?  // Hash do browser
+  firstPage    String   // Primeira página visitada
+  lastPage     String   // Última página visitada
+  pageCount    Int      @default(1)
+  utmSource    String?
+  utmMedium    String?
+  utmCampaign  String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([fingerprint])
+  @@index([createdAt])
+  @@map("sessions")
+}
