@@ -3,7 +3,7 @@
 import { motion, useInView, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useRef, useState, MouseEvent } from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, GraduationCap, Glasses, Hotel, Sparkles } from 'lucide-react';
+import { ArrowUpRight, GraduationCap, Glasses, Hotel, Sparkles, Play, ExternalLink } from 'lucide-react';
 
 const products = [
   {
@@ -21,6 +21,7 @@ const products = [
       { value: '2k+', label: 'Educadores' },
     ],
     url: '/acolheduc',
+    demoUrl: 'https://acolheduc-app.vercel.app/',
   },
   {
     id: 'nexusvr',
@@ -37,6 +38,7 @@ const products = [
       { value: '95%', label: 'Engajamento' },
     ],
     url: '/nexusvr',
+    demoUrl: 'https://nexus-vr-edu-final.vercel.app/',
   },
   {
     id: 'lumina',
@@ -53,6 +55,7 @@ const products = [
       { value: '99.9%', label: 'Uptime' },
     ],
     url: '/lumina',
+    demoUrl: 'https://lumina-host-ten.vercel.app/',
   },
 ];
 
@@ -257,27 +260,64 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
           </div>
         </div>
 
-        {/* CTA Button */}
-        <Link href={product.url}>
-          <motion.div
-            className="w-full py-4 flex items-center justify-center gap-3 rounded-xl border text-base font-medium transition-all duration-300 overflow-hidden relative"
-            style={{
-              borderColor: isHovered ? product.color : 'rgb(38 38 38)',
-              color: isHovered ? 'black' : 'white',
-              backgroundColor: isHovered ? product.color : 'transparent',
-            }}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+        {/* CTA Buttons */}
+        <div className="flex flex-col gap-3">
+          {/* Botao Demo ao Vivo - Destaque Principal */}
+          <a
+            href={product.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group/demo relative"
           >
-            <span className="relative z-10">Explorar {product.name}</span>
             <motion.div
-              animate={isHovered ? { x: 4, y: -4 } : { x: 0, y: 0 }}
-              transition={{ duration: 0.2 }}
+              className="w-full py-4 flex items-center justify-center gap-3 rounded-xl text-base font-medium transition-all duration-300 overflow-hidden relative"
+              style={{
+                backgroundColor: product.color,
+                color: 'black',
+              }}
+              whileHover={{ scale: 1.02, boxShadow: `0 0 30px ${product.color}50` }}
+              whileTap={{ scale: 0.98 }}
             >
-              <ArrowUpRight className="w-5 h-5 relative z-10" />
+              <Play className="w-5 h-5 relative z-10 fill-current" />
+              <span className="relative z-10">Ver Demo ao Vivo</span>
+              <ExternalLink className="w-4 h-4 relative z-10 opacity-70" />
+              <motion.span
+                className="absolute top-1 right-2 text-[10px] px-2 py-0.5 rounded-full bg-black/20 text-black/70 font-medium"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                Ambiente de Teste
+              </motion.span>
             </motion.div>
-          </motion.div>
-        </Link>
+          </a>
+
+          {/* Botao Saiba Mais - Secundario */}
+          <Link href={product.url}>
+            <motion.div
+              className="w-full py-3 flex items-center justify-center gap-3 rounded-xl border text-sm font-medium transition-all duration-300 overflow-hidden relative"
+              style={{
+                borderColor: `${product.color}40`,
+                color: 'white',
+                backgroundColor: 'transparent',
+              }}
+              whileHover={{
+                scale: 1.02,
+                borderColor: product.color,
+                backgroundColor: `${product.color}10`,
+              }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="relative z-10">Saiba Mais</span>
+              <motion.div
+                animate={isHovered ? { x: 4, y: -4 } : { x: 0, y: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <ArrowUpRight className="w-4 h-4 relative z-10" />
+              </motion.div>
+            </motion.div>
+          </Link>
+        </div>
       </div>
     </motion.div>
   );

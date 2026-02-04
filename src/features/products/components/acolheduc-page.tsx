@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { useRef, useState, useEffect } from 'react';
 import {
   ArrowLeft,
-  ArrowRight,
   GraduationCap,
   Users,
   Brain,
@@ -263,26 +262,32 @@ export function AcolheducContent() {
               {/* CTAs */}
               <div className="flex flex-wrap gap-4">
                 <motion.a
-                  href="https://acolheduc.com.br"
+                  href="https://acolheduc-app.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-medium rounded-xl overflow-hidden"
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.02, boxShadow: '0 0 30px rgba(16, 185, 129, 0.5)' }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <span className="relative z-10">Visitar Site Oficial</span>
-                  <ExternalLink className="w-5 h-5 relative z-10 group-hover:rotate-12 transition-transform" />
+                  <Play className="w-5 h-5 relative z-10 fill-current" />
+                  <span className="relative z-10">Ver Demo ao Vivo</span>
+                  <ExternalLink className="w-4 h-4 relative z-10 opacity-70" />
+                  <span className="absolute top-1 right-2 text-[10px] px-2 py-0.5 rounded-full bg-black/20 text-white/80 font-medium">
+                    Ambiente de Teste
+                  </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </motion.a>
 
                 <motion.a
-                  href="#features"
-                  className="inline-flex items-center gap-3 px-8 py-4 border border-neutral-700 text-white font-medium rounded-xl hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all"
+                  href="https://acolheduc.com.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-8 py-4 border border-emerald-500/40 text-white font-medium rounded-xl hover:border-emerald-500/70 hover:bg-emerald-500/5 transition-all"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Play className="w-5 h-5" />
-                  Ver em Ação
+                  <span>Site Oficial</span>
+                  <ExternalLink className="w-4 h-4" />
                 </motion.a>
               </div>
             </motion.div>
@@ -636,15 +641,16 @@ export function AcolheducContent() {
 
             <div className="flex flex-wrap justify-center gap-4">
               <motion.a
-                href="https://acolheduc.com.br"
+                href="https://acolheduc-app.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold text-lg rounded-xl overflow-hidden"
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.02, boxShadow: '0 0 30px rgba(16, 185, 129, 0.5)' }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span className="relative z-10">Explorar Acolheduc</span>
-                <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
+                <Play className="w-5 h-5 relative z-10 fill-current" />
+                <span className="relative z-10">Ver Demo ao Vivo</span>
+                <ExternalLink className="w-4 h-4 relative z-10 opacity-70" />
                 <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity" />
               </motion.a>
 
