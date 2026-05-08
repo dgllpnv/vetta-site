@@ -89,7 +89,7 @@ const products: Product[] = [
     tagline: 'Excelência em tiro esportivo',
     idealFor: 'Clubes de tiro com controle de habitualidade CR/CAC',
     description:
-      'Sistema operacional para clubes esportivos: cadastro de associados, controle de presença e disparos por baia, financeiro, anuidades, eventos, habitualidade CR/CAC e auditoria nativa em todas as operações.',
+      'Sistema operacional para clubes de tiro esportivo. Associados, presença por baia, anuidades, habitualidade CR/CAC e auditoria nativa em todas as operações.',
     icon: Target,
     color: '#FB923C',
     colorName: 'orange',
@@ -351,7 +351,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
       />
 
       <div
-        className={`relative h-full p-8 border backdrop-blur-sm overflow-hidden transition-all duration-500 group-hover:bg-neutral-900/95 ${cardWrapperClass[product.vibe]}`}
+        className={`relative h-full p-8 border backdrop-blur-sm overflow-hidden transition-all duration-500 group-hover:bg-neutral-900/95 flex flex-col ${cardWrapperClass[product.vibe]}`}
       >
         {/* Vibe-specific decorations */}
         <VibeBackdrop vibe={product.vibe} color={product.color} isHovered={isHovered} />
@@ -505,8 +505,8 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           </div>
         </div>
 
-        {/* CTAs */}
-        <div className="flex flex-col gap-3 relative">
+        {/* CTAs — mt-auto fixa o bloco no fundo do card, alinhando os 4 cards verticalmente independente do tamanho das descrições/taglines */}
+        <div className="flex flex-col gap-3 relative mt-auto pt-4">
           {/* Primary */}
           <Link href={product.url}>
             <motion.div
