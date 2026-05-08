@@ -99,7 +99,7 @@ export function AcolheducContent() {
 
   return (
     <div ref={containerRef} className="relative">
-      {/* Hero — dark Auri spine + lavanda Acolheduc */}
+      {/* Hero, dark Auri spine + lavanda Acolheduc */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Camadas de profundidade */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#1A0F2E] via-[#0F0A1A] to-black" />
@@ -145,7 +145,7 @@ export function AcolheducContent() {
           </motion.div>
 
           <div className="grid lg:grid-cols-12 gap-12 items-center">
-            {/* Left — copy */}
+            {/* Left, copy */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -238,7 +238,7 @@ export function AcolheducContent() {
               </div>
             </motion.div>
 
-            {/* Right — screenshot real do produto */}
+            {/* Right, screenshot real do produto */}
             <motion.div
               initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
@@ -257,7 +257,7 @@ export function AcolheducContent() {
                 >
                   <Image
                     src="/products/acolheduc/login.png"
-                    alt="Acolheduc — interface real do produto"
+                    alt="Acolheduc, interface real do produto"
                     width={1200}
                     height={750}
                     priority
@@ -319,7 +319,7 @@ export function AcolheducContent() {
         </motion.div>
       </section>
 
-      {/* Manifesto pull-quote — frases reais do produto */}
+      {/* Manifesto pull-quote, frases reais do produto */}
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0F0A1A] to-black" />
 
@@ -351,7 +351,7 @@ export function AcolheducContent() {
                 </span>
               </blockquote>
 
-              <p className="text-base text-neutral-500 mb-10 italic">— Nelson Mandela</p>
+              <p className="text-base text-neutral-500 mb-10 italic">Nelson Mandela</p>
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="p-6 rounded-2xl border border-violet-400/15 bg-violet-500/5 backdrop-blur">
@@ -461,7 +461,7 @@ export function AcolheducContent() {
               </h2>
               <p className="text-neutral-400 text-lg mb-10 leading-relaxed">
                 Uma nova forma de acompanhar, documentar e desenvolver
-                cada aluno — em qualquer rede de ensino.
+                cada aluno, em qualquer rede de ensino.
               </p>
 
               <div className="grid gap-3">

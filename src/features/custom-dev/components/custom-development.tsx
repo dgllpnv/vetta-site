@@ -28,7 +28,7 @@ const journey = [
     title: 'A gente desenha',
     plain: 'Em uma semana você vê um protótipo navegável.',
     detail:
-      'Sem código ainda — só os caminhos do software. Você aprova, ou voltamos para a prancheta.',
+      'Sem código ainda, só os caminhos do software. Você aprova, ou voltamos para a prancheta.',
   },
   {
     n: '03',
@@ -44,18 +44,18 @@ const journey = [
     title: 'A gente fica',
     plain: 'Software em produção precisa de carinho.',
     detail:
-      'Suporte, evolução e novas funcionalidades depois do lançamento. Não somos empreiteiros — somos parceiros.',
+      'Suporte, evolução e novas funcionalidades depois do lançamento. Não somos empreiteiros, somos parceiros.',
   },
 ];
 
 const concerns = [
   {
     q: '...mas não sei se a ideia é viável?',
-    a: 'A primeira conversa é nossa. Você sai dela com um diagnóstico honesto — mesmo que a resposta seja "essa ideia não vai dar".',
+    a: 'A primeira conversa é nossa. Você sai dela com um diagnóstico honesto, mesmo que a resposta seja "essa ideia não vai dar".',
   },
   {
     q: '...mas já tentei antes e deu errado?',
-    a: 'A gente começa de onde você parou. Não jogamos código fora por orgulho — entendemos o que existe e construímos em cima.',
+    a: 'A gente começa de onde você parou. Não jogamos código fora por orgulho, entendemos o que existe e construímos em cima.',
   },
   {
     q: '...mas acho que vai demorar muito?',
@@ -80,7 +80,7 @@ export function CustomDevelopment() {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-radial from-white/[0.02] to-transparent pointer-events-none" />
 
       <div className="container relative">
-        {/* Header — conversational + accessible */}
+        {/* Header, conversational + accessible */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -100,11 +100,11 @@ export function CustomDevelopment() {
 
           <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
             Sem jargão técnico. Sem proposta de 80 páginas. Sem promessas que ninguém entende.
-            Conversamos, desenhamos, construímos — e ficamos depois que entra no ar.
+            Conversamos, desenhamos, construímos, e ficamos depois que entra no ar.
           </p>
         </motion.div>
 
-        {/* Os 4 momentos — flow horizontal com setas conectoras */}
+        {/* Os 4 momentos, flow horizontal com setas conectoras */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-28 relative">
           {journey.map((step, i) => (
             <motion.div
@@ -142,9 +142,9 @@ export function CustomDevelopment() {
           ))}
         </div>
 
-        {/* Conversa franca — Q&A acessível */}
+        {/* Conversa franca, Q&A acessível */}
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start mb-24">
-          {/* Coluna esquerda — header */}
+          {/* Coluna esquerda, header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -162,11 +162,11 @@ export function CustomDevelopment() {
             </h3>
             <p className="text-neutral-400 leading-relaxed">
               Essas são as quatro frases que mais ouvimos na primeira conversa.
-              As respostas curtas estão aqui — as longas, ao vivo, com você.
+              As respostas curtas estão aqui, as longas, ao vivo, com você.
             </p>
           </motion.div>
 
-          {/* Coluna direita — accordion */}
+          {/* Coluna direita, accordion */}
           <div className="space-y-3">
             {concerns.map((c, i) => {
               const isOpen = openConcern === i;
@@ -233,7 +233,7 @@ export function CustomDevelopment() {
           </h3>
           <p className="text-neutral-400 text-base md:text-lg mb-8 max-w-xl mx-auto relative leading-relaxed">
             30 minutos. Sem custo. Sem compromisso.
-            Você sai com um diagnóstico honesto — mesmo que a gente não seja a melhor opção para o seu projeto.
+            Você sai com um diagnóstico honesto, mesmo que a gente não seja a melhor opção para o seu projeto.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 items-center justify-center relative">
             <Link

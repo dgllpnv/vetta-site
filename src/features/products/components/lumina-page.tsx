@@ -90,7 +90,7 @@ export function LuminaContent() {
 
   return (
     <div ref={containerRef} className="relative">
-      {/* Hero — dark Auri spine + indigo Lumina elegante */}
+      {/* Hero, dark Auri spine + indigo Lumina elegante */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Camadas de profundidade */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0F0820] via-[#0A0612] to-black" />
@@ -248,7 +248,7 @@ export function LuminaContent() {
               </div>
             </motion.div>
 
-            {/* Right — screenshot real do site Lumina (col-span-6) */}
+            {/* Right, screenshot real do site Lumina (col-span-6) */}
             <motion.div
               initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
@@ -267,7 +267,7 @@ export function LuminaContent() {
                 >
                   <Image
                     src="/products/lumina/home.png"
-                    alt="Lumina — interface real do produto"
+                    alt="Lumina, interface real do produto"
                     width={1200}
                     height={750}
                     priority
@@ -343,13 +343,13 @@ export function LuminaContent() {
         </motion.div>
       </section>
 
-      {/* "A arte de receber bem" — fotos reais magazine layout */}
+      {/* "A arte de receber bem", fotos reais magazine layout */}
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0A0612] to-black" />
 
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left — screenshot real do home2 (galeria de fotos do site real) */}
+            {/* Left, screenshot real do home2 (galeria de fotos do site real) */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -360,7 +360,7 @@ export function LuminaContent() {
               <div className="relative rounded-2xl overflow-hidden border border-indigo-500/20 shadow-2xl">
                 <Image
                   src="/products/lumina/home2.png"
-                  alt="Lumina — galeria de hospitalidade premium"
+                  alt="Lumina, galeria de hospitalidade premium"
                   width={1200}
                   height={750}
                   className="w-full h-auto"
@@ -369,7 +369,7 @@ export function LuminaContent() {
               </div>
             </motion.div>
 
-            {/* Right — copy elegante */}
+            {/* Right, copy elegante */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -426,7 +426,7 @@ export function LuminaContent() {
         </div>
       </section>
 
-      {/* Bento Grid — funcionalidades */}
+      {/* Bento Grid, funcionalidades */}
       <section id="features" className="py-24 relative">
         <div className="container">
           <motion.div
@@ -449,7 +449,7 @@ export function LuminaContent() {
               , em um só lugar.
             </h2>
             <p className="text-neutral-400 text-lg">
-              Da recepção ao financeiro — sem planilhas paralelas.
+              Da recepção ao financeiro, sem planilhas paralelas.
             </p>
           </motion.div>
 

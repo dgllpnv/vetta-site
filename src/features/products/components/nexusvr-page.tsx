@@ -131,7 +131,7 @@ export function NexusvrContent() {
 
   return (
     <div ref={containerRef} className="relative bg-[#08020F]">
-      {/* Hero — sci-fi com starfield, magenta-cyan */}
+      {/* Hero, sci-fi com starfield, magenta-cyan */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#1A0A2E] via-[#0A0218] to-black" />
         <Starfield />
@@ -187,7 +187,7 @@ export function NexusvrContent() {
           </motion.div>
 
           <div className="grid lg:grid-cols-12 gap-12 items-center">
-            {/* Left — copy */}
+            {/* Left, copy */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -312,7 +312,7 @@ export function NexusvrContent() {
               </div>
             </motion.div>
 
-            {/* Right — screenshot real do home Nexus */}
+            {/* Right, screenshot real do home Nexus */}
             <motion.div
               initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
@@ -330,7 +330,7 @@ export function NexusvrContent() {
                 >
                   <Image
                     src="/products/nexusvr/home.png"
-                    alt="Nexus VR Edu — interface real do produto"
+                    alt="Nexus VR Edu, interface real do produto"
                     width={1200}
                     height={750}
                     priority
@@ -407,7 +407,7 @@ export function NexusvrContent() {
 
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left — copy */}
+            {/* Left, copy */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -436,7 +436,7 @@ export function NexusvrContent() {
               </h2>
               <p className="text-neutral-400 text-lg leading-relaxed mb-8">
                 Gestão centralizada de escolas, professores, alunos e conteúdos VR.
-                Cada plano de aula tem sua jornada imersiva — e cada turma, seu próprio
+                Cada plano de aula tem sua jornada imersiva, e cada turma, seu próprio
                 analytics em tempo real.
               </p>
 
@@ -467,7 +467,7 @@ export function NexusvrContent() {
               </div>
             </motion.div>
 
-            {/* Right — screenshot do painel admin */}
+            {/* Right, screenshot do painel admin */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -478,7 +478,7 @@ export function NexusvrContent() {
               <div className="relative rounded-2xl overflow-hidden border border-pink-500/25 shadow-2xl">
                 <Image
                   src="/products/nexusvr/admin.png"
-                  alt="Nexus VR Edu — painel de gestão de escolas"
+                  alt="Nexus VR Edu, painel de gestão de escolas"
                   width={1200}
                   height={750}
                   className="w-full h-auto"
@@ -590,7 +590,7 @@ export function NexusvrContent() {
                 </span>
               </h2>
               <p className="text-neutral-400 text-lg mb-10 leading-relaxed">
-                De treinamentos de segurança a tours virtuais —
+                De treinamentos de segurança a tours virtuais,
                 NexusVR se adapta às necessidades pedagógicas.
               </p>
 

@@ -63,7 +63,7 @@ export function HeroSection() {
             </span>
           </motion.div>
 
-          {/* Main headline — outcome-driven */}
+          {/* Main headline, outcome-driven */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -72,10 +72,10 @@ export function HeroSection() {
           >
             Software vertical de qualidade
             <br />
-            <span className="gradient-text">enterprise — entregue em semanas.</span>
+            <span className="gradient-text">enterprise, entregue em semanas.</span>
           </motion.h1>
 
-          {/* Verticais que servimos — subline rotativa */}
+          {/* Verticais que servimos, subline rotativa */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -105,7 +105,7 @@ export function HeroSection() {
             className="mt-6 text-base md:text-lg text-neutral-400 max-w-2xl mx-auto leading-relaxed"
           >
             Quatro produtos próprios em produção e desenvolvimento sob medida com
-            arquitetura Gen 2. Sem promessas — só software que já está rodando.
+            arquitetura Gen 2. Sem promessas, só software que já está rodando.
           </motion.p>
 
           {/* CTA */}

@@ -67,7 +67,7 @@ const features = [
     icon: Eye,
     title: 'Auditoria Nativa',
     description:
-      'AuditLog em todas as operações sensíveis, sem nunca falhar a operação principal — engole exceções por design.',
+      'AuditLog em todas as operações sensíveis, sem nunca falhar a operação principal, engole exceções por design.',
     highlight: false,
     span: 'col-span-1',
   },
@@ -103,7 +103,7 @@ export function CbtContent() {
 
   return (
     <div ref={containerRef} className="relative bg-[#0A0606]">
-      {/* Hero — tactical, dark profundo, sotaque laranja */}
+      {/* Hero, tactical, dark profundo, sotaque laranja */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#1A0F08] via-[#0A0606] to-black" />
 
@@ -180,7 +180,7 @@ export function CbtContent() {
                 Sistema operacional para
               </p>
 
-              {/* Headline serif bold — usa frase real do produto */}
+              {/* Headline serif bold, usa frase real do produto */}
               <h1
                 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight"
                 style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
@@ -269,7 +269,7 @@ export function CbtContent() {
               </div>
             </motion.div>
 
-            {/* Right — screenshot real do dashboard Coldre */}
+            {/* Right, screenshot real do dashboard Coldre */}
             <motion.div
               initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
@@ -287,7 +287,7 @@ export function CbtContent() {
                 >
                   <Image
                     src="/products/cbt/dashboard.png"
-                    alt="Coldre System — painel administrativo real"
+                    alt="Coldre System, painel administrativo real"
                     width={1200}
                     height={750}
                     priority
@@ -347,14 +347,14 @@ export function CbtContent() {
         </motion.div>
       </section>
 
-      {/* Section: lancamentos.png — operação rica em ação */}
+      {/* Section: lancamentos.png, operação rica em ação */}
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0A0606] to-black" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent" />
 
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left — screenshot lancamentos */}
+            {/* Left, screenshot lancamentos */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -365,7 +365,7 @@ export function CbtContent() {
               <div className="relative rounded-xl overflow-hidden border border-orange-500/25 shadow-2xl">
                 <Image
                   src="/products/cbt/lancamentos.png"
-                  alt="Coldre System — lançamentos operacionais"
+                  alt="Coldre System, lançamentos operacionais"
                   width={1200}
                   height={750}
                   className="w-full h-auto"
@@ -374,7 +374,7 @@ export function CbtContent() {
               </div>
             </motion.div>
 
-            {/* Right — copy */}
+            {/* Right, copy */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -393,7 +393,7 @@ export function CbtContent() {
                 <span className="text-neutral-500">.</span>
               </h2>
               <p className="text-neutral-400 text-lg leading-relaxed mb-8">
-                Nova visita, nova venda, novo empréstimo, nova anuidade — cada
+                Nova visita, nova venda, novo empréstimo, nova anuidade, cada
                 operação dispara uma transação atômica e um registro de auditoria.
                 Zero retrabalho, zero planilha paralela.
               </p>
@@ -449,7 +449,7 @@ export function CbtContent() {
               Operação completa do clube
             </h2>
             <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
-              Da catraca à demonstração financeira — sem planilhas paralelas.
+              Da catraca à demonstração financeira, sem planilhas paralelas.
             </p>
           </motion.div>
 
@@ -499,7 +499,7 @@ export function CbtContent() {
         </div>
       </section>
 
-      {/* Section: relatorios.png — auditoria e relatórios */}
+      {/* Section: relatorios.png, auditoria e relatórios */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-orange-950/20 via-black to-orange-950/15" />
 
@@ -541,7 +541,7 @@ export function CbtContent() {
               </div>
             </motion.div>
 
-            {/* Right — screenshot relatorios */}
+            {/* Right, screenshot relatorios */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -552,7 +552,7 @@ export function CbtContent() {
               <div className="relative rounded-xl overflow-hidden border border-orange-500/25 shadow-2xl">
                 <Image
                   src="/products/cbt/relatorios.png"
-                  alt="Coldre System — relatórios oficiais e auditoria"
+                  alt="Coldre System, relatórios oficiais e auditoria"
                   width={1200}
                   height={750}
                   className="w-full h-auto"
@@ -628,7 +628,7 @@ export function CbtContent() {
                     <Users className="w-5 h-5 text-orange-400" />
                     <div>
                       <p className="text-white font-semibold text-sm">
-                        Single-tenant — instalação por clube
+                        Single-tenant, instalação por clube
                       </p>
                       <p className="text-neutral-500 text-xs">
                         Banco e domínio próprios. Dados nunca cruzam clientes.

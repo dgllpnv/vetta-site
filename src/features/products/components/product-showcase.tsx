@@ -107,7 +107,7 @@ const products: Product[] = [
 
 function VibeBackdrop({ vibe, color, isHovered }: { vibe: ProductVibe; color: string; isHovered: boolean }) {
   if (vibe === 'acolhedor') {
-    // Sparkle field — pontos lavanda flutuando
+    // Sparkle field, pontos lavanda flutuando
     return (
       <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-2xl">
         <div
@@ -248,7 +248,7 @@ function getTaglineAccent(vibe: ProductVibe): { prefix?: string; suffix?: string
     case 'cyber':
       return { prefix: '<', suffix: ' />', style: { fontFamily: '"Courier New", monospace' } };
     case 'elegante':
-      return { prefix: '—', style: { fontFamily: 'Georgia, serif', fontStyle: 'italic' } };
+      return { prefix: '·', style: { fontFamily: 'Georgia, serif', fontStyle: 'italic' } };
     case 'tactical':
       return {};
   }
@@ -356,7 +356,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
         {/* Vibe-specific decorations */}
         <VibeBackdrop vibe={product.vibe} color={product.color} isHovered={isHovered} />
 
-        {/* Top tactical accent bar (only Coldre — visual signature) */}
+        {/* Top tactical accent bar (only Coldre, visual signature) */}
         {product.vibe === 'tactical' && (
           <motion.div
             className="absolute top-0 left-0 h-[2px] bg-gradient-to-r from-orange-500 to-orange-400"
@@ -505,7 +505,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           </div>
         </div>
 
-        {/* CTAs — mt-auto fixa o bloco no fundo do card, alinhando os 4 cards verticalmente independente do tamanho das descrições/taglines */}
+        {/* CTAs, mt-auto fixa o bloco no fundo do card, alinhando os 4 cards verticalmente independente do tamanho das descrições/taglines */}
         <div className="flex flex-col gap-3 relative mt-auto pt-4">
           {/* Primary */}
           <Link href={product.url}>
@@ -546,7 +546,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
             </motion.div>
           </Link>
 
-          {/* Secondary text link — link real para produtos com demo, ou aviso inline para os sem demo público (mantém o alinhamento vertical entre os 4 cards) */}
+          {/* Secondary text link, link real para produtos com demo, ou aviso inline para os sem demo público (mantém o alinhamento vertical entre os 4 cards) */}
           {product.demoUrl ? (
             <a
               href={product.demoUrl}
@@ -644,7 +644,7 @@ export function ProductShowcase() {
           </p>
         </motion.div>
 
-        {/* Products Grid — 2x2 to comfortably fit 4 produtos */}
+        {/* Products Grid, 2x2 to comfortably fit 4 produtos */}
         <div className="grid md:grid-cols-2 gap-8">
           {products.map((product, index) => (
             <ProductCard key={product.id} product={product} index={index} />

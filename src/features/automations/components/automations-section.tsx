@@ -10,40 +10,60 @@ import {
   MessagesSquare,
   ArrowRight,
   ChevronRight,
+  TrendingDown,
+  TrendingUp,
 } from 'lucide-react';
+
+const outcomes = [
+  {
+    icon: TrendingDown,
+    label: 'Custo operacional menor',
+    description:
+      'Sua equipe deixa de gastar tempo com tarefas repetitivas. O que era feito à mão passa a acontecer sozinho, no fundo, sem ninguém precisar lembrar.',
+  },
+  {
+    icon: TrendingUp,
+    label: 'Mais clientes atendidos',
+    description:
+      'Atendimento que responde no segundo seguinte, qualifica e agenda. Você capta clientes nos horários em que ninguém está no telefone, sem aumentar o time.',
+  },
+];
 
 const verticals = [
   {
     icon: Scale,
-    label: 'Jurídico',
-    description: 'Escritórios de advocacia que querem captar e atender sem inflar o time.',
+    label: 'Escritórios de Advocacia',
+    description:
+      'Captação e atendimento sem precisar contratar mais pessoas para a recepção.',
     cases: [
-      'Triagem inicial por área e urgência via WhatsApp',
-      'Monitoramento de andamentos e intimações com alerta no canal certo',
-      'Geração de documentos com assinatura eletrônica',
-      'Distribuição automática de lead por especialidade',
+      'Atendimento inicial pelo WhatsApp que entende a área e a urgência do caso',
+      'Aviso automático quando uma intimação ou andamento aparece no processo',
+      'Documentos prontos com assinatura eletrônica em poucos minutos',
+      'Cada novo lead chega direto para o advogado certo da especialidade',
     ],
   },
   {
     icon: Stethoscope,
-    label: 'Clínicas & Saúde',
-    description: 'Operação clínica que precisa lembrar, confirmar e reativar — sem fila na recepção.',
+    label: 'Clínicas e Consultórios',
+    description:
+      'Menos gente parada no telefone, mais gente sentada na cadeira do consultório.',
     cases: [
-      'Agendamento conversacional integrado ao sistema da clínica',
-      'Confirmação e lembrete sem passar pela recepção',
-      'Reativação de pacientes inativos por especialidade',
-      'NPS e pós-atendimento automatizados',
+      'Agendamento por WhatsApp puxando os horários reais da agenda',
+      'Confirmação e lembrete que reduzem faltas sem ocupar a recepção',
+      'Reativação de pacientes antigos por especialidade ou convênio',
+      'Pesquisa de satisfação automática depois da consulta',
     ],
   },
   {
     icon: MessagesSquare,
-    label: 'Atendimento & CRM',
-    description: 'Times de relacionamento que querem qualificar mais sem perder o tom humano.',
+    label: 'Atendimento ao Cliente',
+    description:
+      'Respostas rápidas para muitas pessoas, com a transição para o humano sem perder o tom.',
     cases: [
-      'Roteamento por intenção com handoff humano sem fricção',
-      'Qualificação de lead com gravação no CRM',
-      'Resumo automático antes do handoff',
-      'Sincronização entre WhatsApp, e-mail e helpdesk',
+      'Chatbot que entende a pergunta antes de passar para um atendente',
+      'Lead qualificado já entra organizado no seu CRM, com histórico',
+      'Resumo da conversa pronto antes do humano assumir',
+      'Tudo conectado: WhatsApp, e-mail e sistema de tickets em um só lugar',
     ],
   },
 ];
@@ -51,18 +71,18 @@ const verticals = [
 const process = [
   {
     n: '01',
-    title: 'Mapeamos o processo',
-    desc: 'Uma conversa de 30 min e algumas tardes acompanhando sua operação. Saímos com diagnóstico e proposta — mesmo que automação não seja a resposta certa.',
+    title: 'A gente entende como você trabalha hoje',
+    desc: 'Uma conversa de 30 minutos para descobrir o que dói, o que toma tempo e o que está deixando cliente escapar. Você sai com um diagnóstico honesto, mesmo que automatizar não seja a melhor saída.',
   },
   {
     n: '02',
-    title: 'Sprint inicial em produção',
-    desc: 'De 1 a 3 fluxos no ar em 2 a 4 semanas. Você acompanha cada entrega e aprova antes de ir ao ar — nada vira surpresa no final.',
+    title: 'Construímos a primeira automação no ar em poucas semanas',
+    desc: 'De um a três fluxos rodando em duas a quatro semanas. Você acompanha o que está sendo feito, vê funcionando antes de virar oficial e aprova cada etapa.',
   },
   {
     n: '03',
-    title: 'Evolução contínua',
-    desc: 'APIs mudam, processos evoluem. Continuamos observando, ajustando e expandindo a camada quando faz sentido para o negócio.',
+    title: 'A gente continua junto depois que entra no ar',
+    desc: 'Sistemas mudam, processos crescem, novas oportunidades aparecem. Cuidamos da camada de automação para ela continuar entregando resultado mês a mês.',
   },
 ];
 
@@ -70,8 +90,8 @@ const integrations = [
   'n8n',
   'WhatsApp Business API',
   'Google Workspace',
-  'CRMs & ERPs',
-  'OpenAI / Anthropic',
+  'CRMs e ERPs',
+  'OpenAI e Anthropic',
   'Telegram',
 ];
 
@@ -88,7 +108,7 @@ export function AutomationsSection() {
       {/* Top divider */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent" />
 
-      {/* Soft teal wash de fundo (sutil) */}
+      {/* Soft teal wash de fundo */}
       <motion.div
         className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.06), transparent 70%)' }}
@@ -110,36 +130,79 @@ export function AutomationsSection() {
           </span>
 
           <h2 className="text-4xl md:text-6xl font-semibold text-white leading-[1.05] mb-6">
-            Operação que continua{' '}
+            Atender mais clientes,{' '}
             <span
               className="italic font-medium text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-300"
               style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
             >
-              quando você dorme
+              gastando menos
             </span>
             <span className="text-neutral-500">.</span>
           </h2>
 
           <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
-            Fluxos em n8n com agentes conversacionais no WhatsApp, Telegram e web —
-            construídos para o seu processo, não para um template. Triagem, agendamento,
-            roteamento e follow-up seguem funcionando fora do horário comercial,
-            sem ampliar o time.
+            A gente coloca seus sistemas e canais conversando entre si.
+            O resultado é simples: menos trabalho repetitivo para a sua equipe e
+            mais clientes atendidos por dia, inclusive nos horários em que ninguém
+            está no escritório.
           </p>
         </motion.div>
 
-        {/* Verticais — grid 3 colunas */}
+        {/* Outcomes, os dois ganhos centrais */}
+        <div className="grid md:grid-cols-2 gap-6 mb-24">
+          {outcomes.map((o, i) => (
+            <motion.div
+              key={o.label}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
+              className="relative p-8 rounded-2xl border border-teal-400/15 bg-gradient-to-br from-teal-400/[0.04] to-transparent backdrop-blur-sm"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-11 h-11 rounded-xl bg-teal-400/10 border border-teal-400/30 flex items-center justify-center">
+                  <o.icon className="w-5 h-5 text-teal-300" strokeWidth={2.2} />
+                </div>
+                <h3 className="text-xl font-semibold text-white">{o.label}</h3>
+              </div>
+              <p className="text-neutral-300 leading-relaxed">{o.description}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Verticais */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mb-12"
+        >
+          <span className="text-xs uppercase tracking-[0.3em] text-neutral-600 font-semibold mb-3 block">
+            Onde já entregamos resultado
+          </span>
+          <h3 className="text-3xl md:text-4xl font-semibold text-white leading-[1.1] max-w-2xl">
+            Três áreas onde a automação{' '}
+            <span
+              className="italic font-medium text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-300"
+              style={{ fontFamily: 'Georgia, serif' }}
+            >
+              faz diferença rápido
+            </span>
+            <span className="text-neutral-500">.</span>
+          </h3>
+        </motion.div>
+
         <div className="grid md:grid-cols-3 gap-6 mb-24">
           {verticals.map((v, i) => (
             <motion.div
               key={v.label}
               initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
               className="group relative"
             >
               <div className="h-full p-7 rounded-2xl border border-neutral-800/60 bg-neutral-900/30 backdrop-blur-sm hover:border-teal-400/30 hover:bg-neutral-900/60 transition-all duration-500">
-                {/* Icon + label */}
                 <div className="flex items-start gap-4 mb-5">
                   <motion.div
                     className="w-11 h-11 rounded-xl bg-teal-400/10 border border-teal-400/20 flex items-center justify-center group-hover:bg-teal-400/15 group-hover:border-teal-400/40 transition-colors"
@@ -148,14 +211,13 @@ export function AutomationsSection() {
                     <v.icon className="w-5 h-5 text-teal-300" strokeWidth={2} />
                   </motion.div>
                   <div className="flex-1 pt-1">
-                    <h3 className="text-xl font-semibold text-white mb-1">{v.label}</h3>
+                    <h4 className="text-xl font-semibold text-white mb-1">{v.label}</h4>
                     <p className="text-sm text-neutral-500 leading-relaxed">
                       {v.description}
                     </p>
                   </div>
                 </div>
 
-                {/* Cases */}
                 <ul className="space-y-2.5 pt-5 border-t border-neutral-800/60">
                   {v.cases.map((c) => (
                     <li
@@ -188,19 +250,18 @@ export function AutomationsSection() {
               Como funciona
             </span>
             <h3 className="text-3xl md:text-4xl font-semibold text-white leading-[1.1] mb-6">
-              Sprint fixo,
-              <br />
+              Começa pequeno,{' '}
               <span
                 className="italic font-medium text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-300"
                 style={{ fontFamily: 'Georgia, serif' }}
               >
-                evolução contínua
+                cresce do seu jeito
               </span>
               <span className="text-neutral-500">.</span>
             </h3>
             <p className="text-neutral-400 leading-relaxed">
-              Começamos por um diagnóstico honesto. Se a automação resolve, entramos
-              com sprint fechado. Depois, evoluímos a camada conforme seu negócio cresce.
+              A primeira conversa é nossa, sem custo. Se a automação fizer sentido, a gente entrega
+              uma versão funcionando rápido. Depois, segue evoluindo no ritmo do seu negócio.
             </p>
           </div>
 
@@ -231,7 +292,7 @@ export function AutomationsSection() {
           </div>
         </motion.div>
 
-        {/* Stack / integrações — linha sutil */}
+        {/* Stack / integrações, linha sutil */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -272,11 +333,11 @@ export function AutomationsSection() {
             }}
           />
           <h3 className="text-3xl md:text-4xl font-semibold text-white mb-4 relative">
-            Quer mapear o que pode virar fluxo?
+            Onde dá pra economizar tempo no seu negócio?
           </h3>
           <p className="text-neutral-400 text-base md:text-lg mb-8 max-w-xl mx-auto relative leading-relaxed">
-            30 minutos. Sem custo. Saímos da chamada com uma lista do que vale automatizar
-            primeiro — e do que ainda não vale.
+            30 minutos com a gente, sem custo. Você sai da chamada com uma lista do
+            que vale automatizar primeiro e quanto isso pode poupar todo mês.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 items-center justify-center relative">
             <Link

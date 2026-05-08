@@ -17,8 +17,8 @@ export default function HomePage() {
         <HeroSection />
         <TrustBar />
         <ProductShowcase />
-        <CustomDevelopment />
         <AutomationsSection />
+        <CustomDevelopment />
         <ContactSection />
       </main>
       <Footer />
