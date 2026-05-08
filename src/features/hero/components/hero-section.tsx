@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
-const words = ['Educação', 'Hospitalidade', 'Realidade Virtual'];
+const words = ['Educação', 'Hospitalidade', 'Realidade Virtual', 'Esporte'];
 
 export function HeroSection() {
   const [currentWord, setCurrentWord] = useState(0);
@@ -63,39 +63,49 @@ export function HeroSection() {
             </span>
           </motion.div>
 
-          {/* Main headline */}
+          {/* Main headline — outcome-driven */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-4xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.1] tracking-tight"
           >
-            Construímos produtos
+            Software vertical de qualidade
             <br />
-            <span className="text-neutral-500">digitais para </span>
-            <span className="relative inline-block min-w-[280px] md:min-w-[400px]">
+            <span className="gradient-text">enterprise — entregue em semanas.</span>
+          </motion.h1>
+
+          {/* Verticais que servimos — subline rotativa */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.55 }}
+            className="mt-6 text-base md:text-lg text-neutral-500"
+          >
+            Estúdio de produtos para{' '}
+            <span className="relative inline-block min-w-[140px] md:min-w-[200px] text-left">
               <motion.span
                 key={currentWord}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-                className="gradient-text"
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.4 }}
+                className="text-white font-medium"
               >
                 {words[currentWord]}
               </motion.span>
             </span>
-          </motion.h1>
+          </motion.p>
 
           {/* Subheadline */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-8 text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed"
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="mt-6 text-base md:text-lg text-neutral-400 max-w-2xl mx-auto leading-relaxed"
           >
-            Não vendemos promessas. Entregamos soluções que já estão em produção,
-            gerando valor real para nossos parceiros todos os dias.
+            Quatro produtos próprios em produção e desenvolvimento sob medida com
+            arquitetura Gen 2. Sem promessas — só software que já está rodando.
           </motion.p>
 
           {/* CTA */}
@@ -120,30 +130,6 @@ export function HeroSection() {
             </a>
           </motion.div>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.2 }}
-            className="mt-24 grid grid-cols-3 gap-8 max-w-2xl mx-auto"
-          >
-            {[
-              { value: '3', label: 'Produtos em produção' },
-              { value: '5k+', label: 'Usuários ativos' },
-              { value: '99.9%', label: 'Disponibilidade' },
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.4 + i * 0.1 }}
-                className="text-center"
-              >
-                <p className="text-3xl md:text-4xl font-semibold text-white">{stat.value}</p>
-                <p className="text-sm text-neutral-600 mt-2">{stat.label}</p>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </div>
 

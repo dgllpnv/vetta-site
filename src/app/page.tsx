@@ -1,6 +1,6 @@
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
-import { HeroSection } from '@/features/hero';
+import { HeroSection, TrustBar } from '@/features/hero';
 import { ProductShowcase } from '@/features/products';
 import { CustomDevelopment } from '@/features/custom-dev';
 import { ContactSection } from '@/features/contact';
@@ -14,6 +14,7 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
+        <TrustBar />
         <ProductShowcase />
         <CustomDevelopment />
         <ContactSection />
