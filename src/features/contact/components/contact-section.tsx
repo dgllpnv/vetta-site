@@ -258,6 +258,7 @@ export function ContactSection() {
                       <option value="nexusvr">NexusVR - Realidade Virtual</option>
                       <option value="lumina">Lumina - Hospitalidade</option>
                       <option value="cbt">Coldre System - Clubes Esportivos</option>
+                      <option value="automacoes">Automações &amp; Chatbots</option>
                       <option value="custom">Desenvolvimento Sob Medida</option>
                       <option value="other">Outro</option>
                     </select>
