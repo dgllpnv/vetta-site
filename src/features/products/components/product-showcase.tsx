@@ -260,6 +260,7 @@ function getTaglineAccent(vibe: ProductVibe): { prefix?: string; suffix?: string
 
 function ProductCard({ product, index }: { product: Product; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [demoUnavailable, setDemoUnavailable] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const Icon = product.icon;
 
@@ -545,7 +546,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
             </motion.div>
           </Link>
 
-          {/* Secondary text link */}
+          {/* Secondary text link — link real para produtos com demo, ou aviso inline para os sem demo público (mantém o alinhamento vertical entre os 4 cards) */}
           {product.demoUrl ? (
             <a
               href={product.demoUrl}
@@ -558,9 +559,22 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
               <ExternalLink className="w-3 h-3 opacity-60 group-hover/demo:translate-x-0.5 transition-transform" />
             </a>
           ) : (
-            <span className="flex items-center justify-center gap-2 py-1 text-xs text-neutral-600">
-              <span>Single-tenant — implantação por cliente</span>
-            </span>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                setDemoUnavailable(true);
+                window.setTimeout(() => setDemoUnavailable(false), 2800);
+              }}
+              aria-live="polite"
+              className="group/demo flex items-center justify-center gap-2 py-1 text-xs text-neutral-500 hover:text-neutral-200 transition-colors cursor-pointer"
+            >
+              <Play className="w-3 h-3 fill-current" />
+              <span className="transition-colors">
+                {demoUnavailable ? 'Demo indisponível no momento' : 'Ver demo ao vivo'}
+              </span>
+              <ExternalLink className="w-3 h-3 opacity-60 group-hover/demo:translate-x-0.5 transition-transform" />
+            </button>
           )}
         </div>
 

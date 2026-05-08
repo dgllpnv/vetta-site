@@ -195,7 +195,7 @@ node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
    | Campo | Valor |
    |---|---|
    | Nome do Serviço | `auri-postgres` |
-   | Versão da Imagem | `16-alpine` |
+   | Versão da Imagem | `postgres:16-alpine` |
    | Banco de Dados | `auri_db` |
    | Usuário | `auri_user` |
    | Senha | gere/cole a senha forte da Fase 2.1. **Anote.** |
