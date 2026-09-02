@@ -8,6 +8,7 @@ import { Menu, X } from 'lucide-react';
 const navLinks = [
   { label: 'Produtos', href: '/#produtos' },
   { label: 'Sob Medida', href: '/#sob-medida' },
+  { label: 'Automações', href: '/#automacoes' },
   { label: 'Contato', href: '/#contato' },
 ];
 

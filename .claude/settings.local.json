@@ -20,7 +20,31 @@
       "Bash(npx next dev:*)",
       "Bash(git commit:*)",
       "Bash(gh api:*)",
-      "Bash(git ls-remote:*)"
+      "Bash(git ls-remote:*)",
+      "Bash(npm --version)",
+      "WebFetch(domain:www.thoughtbot.com)",
+      "WebFetch(domain:basecamp.com)",
+      "WebFetch(domain:doist.com)",
+      "WebFetch(domain:www.metalab.com)",
+      "WebFetch(domain:ustwo.com)",
+      "WebFetch(domain:work.co)",
+      "WebFetch(domain:ueno.co)",
+      "WebFetch(domain:locomotive.ca)",
+      "WebFetch(domain:clay.global)",
+      "WebFetch(domain:ramotion.com)",
+      "WebFetch(domain:active-theory.com)",
+      "WebFetch(domain:planetary.co)",
+      "WebSearch",
+      "WebFetch(domain:ww1.active-theory.com)",
+      "WebFetch(domain:37signals.com)",
+      "WebFetch(domain:humaan.com)",
+      "WebFetch(domain:linear.app)",
+      "WebFetch(domain:vercel.com)",
+      "WebFetch(domain:stripe.com)",
+      "WebFetch(domain:supabase.com)",
+      "WebFetch(domain:clerk.com)",
+      "WebFetch(domain:raycast.com)",
+      "WebFetch(domain:liveblocks.io)"
     ]
   }
 }

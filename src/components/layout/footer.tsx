@@ -1,12 +1,20 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Shield, Server, Layers, Activity } from 'lucide-react';
 
 const products = [
   { name: 'Acolheduc', href: '/acolheduc', desc: 'Gestão Escolar' },
   { name: 'NexusVR', href: '/nexusvr', desc: 'Realidade Virtual' },
   { name: 'Lumina', href: '/lumina', desc: 'Hospitalidade' },
+  { name: 'Coldre System', href: '/cbt', desc: 'Clubes Esportivos' },
+];
+
+const trustBadges = [
+  { icon: Shield, label: 'LGPD compliant' },
+  { icon: Server, label: 'Vercel + Railway' },
+  { icon: Layers, label: 'Multi-tenant ready' },
+  { icon: Activity, label: '99.9% uptime' },
 ];
 
 export function Footer() {
@@ -37,10 +45,23 @@ export function Footer() {
             </p>
 
             {/* Status indicator */}
-            <div className="mt-8 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neutral-800 bg-neutral-900/50">
+            <Link
+              href="/status"
+              className="mt-8 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neutral-800 bg-neutral-900/50 hover:border-neutral-700 transition-colors"
+            >
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
               <span className="text-sm text-neutral-400">Todos os sistemas operacionais</span>
-            </div>
+            </Link>
+
+            {/* Trust badges */}
+            <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs text-neutral-500">
+              {trustBadges.map((badge) => (
+                <li key={badge.label} className="inline-flex items-center gap-1.5">
+                  <badge.icon className="w-3.5 h-3.5 text-neutral-600" />
+                  <span>{badge.label}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Products */}
@@ -74,10 +95,10 @@ export function Footer() {
             </p>
             <div className="space-y-4">
               <a
-                href="mailto:contato@aurisolutions.com.br"
+                href="mailto:aurisolutions@gmail.com"
                 className="block text-white hover:text-neutral-300 transition-colors"
               >
-                contato@aurisolutions.com.br
+                aurisolutions@gmail.com
               </a>
               <p className="text-neutral-600">
                 Segunda a sexta

@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const validInterests = ['acolheduc', 'nexusvr', 'lumina', 'custom', 'other', ''];
+    const validInterests = ['acolheduc', 'nexusvr', 'lumina', 'cbt', 'automacoes', 'custom', 'other', ''];
     const interestValue = interest && validInterests.includes(interest) ? interest : 'other';
 
     // Salvar no banco

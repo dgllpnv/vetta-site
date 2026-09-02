@@ -112,7 +112,7 @@ export function ContactSection() {
 
             <div className="space-y-6">
               <motion.a
-                href="mailto:contato@aurisolutions.com.br"
+                href="mailto:aurisolutions@gmail.com"
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.3 }}
@@ -124,7 +124,7 @@ export function ContactSection() {
                 <div>
                   <p className="text-xs text-neutral-600 uppercase tracking-wide mb-1">Email</p>
                   <p className="text-white group-hover:text-neutral-200 transition-colors">
-                    contato@aurisolutions.com.br
+                    aurisolutions@gmail.com
                   </p>
                 </div>
               </motion.a>
@@ -257,6 +257,8 @@ export function ContactSection() {
                       <option value="acolheduc">Acolheduc - Gestão Escolar</option>
                       <option value="nexusvr">NexusVR - Realidade Virtual</option>
                       <option value="lumina">Lumina - Hospitalidade</option>
+                      <option value="cbt">Coldre System - Clubes Esportivos</option>
+                      <option value="automacoes">Automações &amp; Chatbots</option>
                       <option value="custom">Desenvolvimento Sob Medida</option>
                       <option value="other">Outro</option>
                     </select>
