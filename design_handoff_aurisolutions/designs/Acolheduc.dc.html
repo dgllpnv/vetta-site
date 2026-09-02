@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --wash:#FAF7FE; --lilac-1:#F3EAFB; --lilac-2:#E9DDF7; --field:#F1EDFA;
+    --ink:#241B33; --muted:#6E6180; --line:#E7DFF2;
+    --brand:#7E22CE; --brand-deep:#5B1E86; --brand-bright:#A855F7; --brand-soft:#C9A9EE;
+    --sun:#F5C24B; --green:#34C77B; --amber:#F5A623; --coral:#EE6A6A;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Figtree',sans-serif; --serif:'Instrument Serif',Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--wash);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:var(--display);font-weight:600;margin:0;letter-spacing:-0.035em;line-height:1.03;text-wrap:balance}
+  p{margin:0;text-wrap:pretty}
+  a{color:var(--brand);text-decoration:none}
+  a:hover{color:var(--brand-deep)}
+  ::selection{background:#E4D8FA;color:var(--ink)}
+  input,textarea,button,select{font-family:inherit;font-size:inherit}
+  @keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes floaty{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-12px) rotate(var(--rot,0deg))}}
+  @keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-30px) scale(1.08)}}
+  @keyframes cut{from{opacity:0;transform:translateY(14px) scale(.99)}to{opacity:1;transform:translateY(0) scale(1)}}
+  @media (max-width:1049px){ [data-navlinks]{display:none !important} }
+  @media (max-width:1023px){
+    [data-g2]{grid-template-columns:1fr !important;gap:36px !important}
+    [data-hero]{grid-template-columns:1fr !important;gap:48px !important}
+    [data-switch-grid]{grid-template-columns:1fr !important;gap:32px !important}
+    [data-flow]{grid-template-columns:1fr 1fr !important}
+    [data-ent]{grid-template-columns:1fr !important}
+    [data-float]{display:none !important}
+    [data-climate]{grid-template-columns:1fr !important}
+  }
+  @media (max-width:767px){
+    [data-flow],[data-kpis],[data-stack]{grid-template-columns:1fr !important}
+    [data-cta-row]{flex-direction:column !important;align-items:stretch !important}
+    [data-cta-row] > a{text-align:center}
+    [data-tabs]{flex-wrap:wrap}
+  }
+</style>
+</helmet>
+
+<div style="background:var(--wash);overflow-x:hidden;position:relative">
+
+<header style="position:sticky;top:0;z-index:60;background:rgba(250,247,254,.85);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)">
+  <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,44px);display:flex;align-items:center;justify-content:space-between;gap:32px;height:74px">
+    <div style="display:flex;align-items:center;gap:12px;flex:none">
+      <span style="font-family:var(--display);font-weight:700;font-size:23px;letter-spacing:-0.035em;background:linear-gradient(100deg,var(--brand-bright),var(--brand-deep));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Acolheduc</span>
+      <span style="font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--brand);background:var(--lilac-2);padding:4px 10px;border-radius:8px">Enterprise</span>
+    </div>
+    <nav style="display:flex;align-items:center;gap:30px;flex:none">
+      <span data-navlinks style="display:flex;align-items:center;gap:30px">
+        <a href="#dois-mundos" style="font-size:15px;color:var(--muted);white-space:nowrap" style-hover="color:var(--ink)">A plataforma</a>
+        <a href="#aluno" style="font-size:15px;color:var(--muted);white-space:nowrap" style-hover="color:var(--ink)">O aluno</a>
+        <a href="#ia" style="font-size:15px;color:var(--muted);white-space:nowrap" style-hover="color:var(--ink)">IA</a>
+        <a href="#enterprise" style="font-size:15px;color:var(--muted);white-space:nowrap" style-hover="color:var(--ink)">Enterprise</a>
+        <a href="AuriSolutions - Landing.dc.html" style="font-size:15px;color:var(--muted);white-space:nowrap" style-hover="color:var(--ink)">O estúdio</a>
+      </span>
+      <a href="#falar" style="font-size:15px;font-weight:600;color:#fff;background:var(--brand);padding:11px 22px;border-radius:999px;white-space:nowrap;flex:none;box-shadow:0 6px 18px rgba(126,34,206,.25);transition:transform .25s,background .25s" style-hover="background:var(--brand-deep);color:#fff;transform:translateY(-1px)">Agendar demonstração</a>
+    </nav>
+  </div>
+</header>
+
+<section data-screen-label="Hero" style="position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:linear-gradient(165deg,#EFE2FB 0%,#FAF7FE 40%,#FCF3F8 70%,#FAF7FE 100%);pointer-events:none"></div>
+  <div style="position:absolute;top:-140px;left:-160px;width:660px;height:660px;border-radius:50%;background:radial-gradient(circle,rgba(168,85,247,.24),transparent 68%);filter:blur(18px);animation:drift 24s ease-in-out infinite;pointer-events:none"></div>
+  <div style="position:absolute;bottom:-200px;right:-140px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(245,194,75,.18),transparent 68%);filter:blur(18px);animation:drift 30s ease-in-out infinite reverse;pointer-events:none"></div>
+  <div style="position:absolute;inset:0;opacity:.55;pointer-events:none;background-image:radial-gradient(rgba(126,34,206,.10) 1px,transparent 1px);background-size:26px 26px;mask-image:radial-gradient(72% 58% at 46% 36%,#000,transparent 76%);-webkit-mask-image:radial-gradient(72% 58% at 46% 36%,#000,transparent 76%)"></div>
+
+  <div style="position:relative;max-width:1280px;margin:0 auto;padding:clamp(52px,7vw,84px) clamp(20px,5vw,44px) clamp(64px,8vw,96px)">
+    <div data-hero style="display:grid;grid-template-columns:1fr 1.12fr;gap:64px;align-items:center">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 9px;border-radius:999px;background:rgba(255,255,255,.8);border:1px solid var(--line);box-shadow:0 4px 16px rgba(126,34,206,.08);margin-bottom:28px;animation:rise .7s cubic-bezier(.16,1,.3,1) both">
+          <span style="display:flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;background:#E3F7ED">
+            <span style="width:6px;height:6px;border-radius:50%;background:var(--green)"></span>
+            <span style="font-size:12px;font-weight:600;color:#137A4B">Em produção</span>
+          </span>
+          <span style="font-size:13px;font-weight:500;color:var(--muted)">Produto AuriSolutions para Educação</span>
+        </div>
+
+        <h1 style="font-size:clamp(38px,5.4vw,70px);max-width:12ch;margin:0;animation:rise .8s cubic-bezier(.16,1,.3,1) .08s both">
+          A escola inteira <span style="display:inline;font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-0.01em;color:var(--brand);background-image:linear-gradient(to top,rgba(245,194,75,.45) .22em,transparent .22em);box-decoration-break:clone;-webkit-box-decoration-break:clone">enxergando o mesmo aluno<span style="color:var(--ink);font-family:var(--display);font-style:normal;font-weight:600">.</span></span>
+        </h1>
+
+        <p style="font-size:19px;color:var(--muted);margin:26px 0 0;max-width:480px;animation:rise .8s cubic-bezier(.16,1,.3,1) .16s both">
+          O professor registra a aula em segundos. A coordenação vê o clima de todas as turmas no mesmo instante. A IA transforma observação solta em relatório pronto.
+        </p>
+
+        <p style="font-family:var(--serif);font-style:italic;font-size:20px;color:var(--brand-deep);margin:24px 0 0;animation:rise .8s cubic-bezier(.16,1,.3,1) .2s both">“Quando educamos com afeto, transformamos realidades.”</p>
+
+        <div data-cta-row style="display:flex;gap:14px;margin-top:34px;animation:rise .8s cubic-bezier(.16,1,.3,1) .24s both">
+          <a href="https://acolheduc-app.vercel.app/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;color:#fff;background:linear-gradient(135deg,var(--brand-bright),var(--brand-deep));padding:17px 30px;border-radius:999px;transition:transform .25s,box-shadow .25s;box-shadow:0 10px 30px rgba(126,34,206,.32)" style-hover="transform:translateY(-2px);box-shadow:0 16px 40px rgba(126,34,206,.42);color:#fff">Entrar na demo ao vivo</a>
+          <a href="#dois-mundos" style="display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;color:var(--brand-deep);background:rgba(255,255,255,.85);border:1px solid var(--line);padding:17px 30px;border-radius:999px;transition:background .25s" style-hover="background:#fff;color:var(--brand-deep)">Ver por dentro</a>
+        </div>
+      </div>
+
+      <div style="position:relative;animation:rise 1s cubic-bezier(.16,1,.3,1) .3s both">
+        <div style="position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.9);box-shadow:0 44px 90px rgba(60,20,110,.22),0 4px 12px rgba(60,20,110,.08)">
+          <div style="display:flex;align-items:center;gap:7px;padding:11px 15px;background:rgba(255,255,255,.92);border-bottom:1px solid var(--line)">
+            <span style="width:9px;height:9px;border-radius:50%;background:#F0A5B8"></span>
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--sun)"></span>
+            <span style="width:9px;height:9px;border-radius:50%;background:#96D6A9"></span>
+            <span style="margin-left:12px;font-size:12px;color:var(--muted)">Painel de Clima Escolar · Coordenação</span>
+          </div>
+          <img src="assets/acolheduc/02-clima-topo.jpg" alt="Painel de Clima Escolar do Acolheduc, tela real do produto" style="width:100%;display:block">
+        </div>
+
+        <div data-float style="--rot:-3deg;position:absolute;bottom:-9%;left:-10%;width:56%;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.9);box-shadow:0 26px 56px rgba(60,20,110,.24);animation:floaty 7s ease-in-out infinite">
+          <img src="assets/acolheduc/04-professor-inicio.jpg" alt="Tela inicial do professor no Acolheduc" style="width:100%;display:block">
+        </div>
+
+        <div data-float style="--rot:4deg;position:absolute;top:-6%;right:-7%;padding:12px 16px;border-radius:14px;background:#fff;box-shadow:0 18px 40px rgba(60,20,110,.18);border:1px solid var(--line);animation:floaty 6s ease-in-out .6s infinite">
+          <p style="font-size:12px;color:var(--muted);margin-bottom:2px">Cobertura BNCC</p>
+          <p style="font-family:var(--display);font-size:24px;font-weight:700;color:var(--brand)">70%</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dois-mundos" data-screen-label="Dois mundos" style="max-width:1280px;margin:0 auto;padding:clamp(64px,9vw,116px) clamp(20px,5vw,44px) 0">
+  <div data-g2 style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:44px">
+    <div>
+      <p style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin-bottom:18px">A plataforma</p>
+      <h2 style="font-size:clamp(30px,4.6vw,56px);max-width:14ch">Dois mundos, <span style="font-family:var(--serif);font-style:italic;font-weight:400">um clique</span> de distância.</h2>
+    </div>
+    <p style="color:var(--muted);font-size:18px;padding-bottom:8px">O mesmo sistema muda de cara conforme quem entra. O professor vê a sala de aula. A coordenação vê a escola. Ninguém precisa aprender a tela do outro.</p>
+  </div>
+
+  <div style="display:inline-flex;padding:5px;border-radius:999px;background:var(--lilac-1);border:1px solid var(--line);margin-bottom:32px">
+    <button type="button" onClick="{{ pickProf }}" style="border:none;cursor:pointer;font-size:15px;font-weight:600;padding:11px 26px;border-radius:999px;background:{{ profBg }};color:{{ profFg }};transition:background .3s,color .3s">Professor</button>
+    <button type="button" onClick="{{ pickCoord }}" style="border:none;cursor:pointer;font-size:15px;font-weight:600;padding:11px 26px;border-radius:999px;background:{{ coordBg }};color:{{ coordFg }};transition:background .3s,color .3s">Coordenação</button>
+  </div>
+
+  <sc-if value="{{ isProf }}" hint-placeholder-val="{{ true }}">
+    <div data-switch-grid style="display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:center;animation:cut .5s cubic-bezier(.16,1,.3,1) both">
+      <div>
+        <h3 style="font-size:clamp(26px,3vw,38px);margin-bottom:18px">O dia do professor cabe em um registro rápido</h3>
+        <p style="font-size:16px;color:var(--muted);margin-bottom:28px">Escolhe a turma, avalia a participação e a interação, escreve uma linha. O sistema devolve o resumo automático e guarda a evidência no perfil de cada aluno.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 30px;display:grid;gap:0">
+          <li style="display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line);font-size:16px"><span style="color:var(--brand);font-weight:700">01</span>Registro Rápido de Aula, turma inteira de uma vez</li>
+          <li style="display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line);font-size:16px"><span style="color:var(--brand);font-weight:700">02</span>Progresso semanal de observações, com meta visível</li>
+          <li style="display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:16px"><span style="color:var(--brand);font-weight:700">03</span>Memórias com foto, aluno, turma e autor</li>
+        </ul>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:13px;padding:7px 14px;border-radius:999px;background:var(--lilac-1);color:var(--brand-deep);font-weight:500">Início</span>
+          <span style="font-size:13px;padding:7px 14px;border-radius:999px;background:var(--lilac-1);color:var(--brand-deep);font-weight:500">Memórias</span>
+          <span style="font-size:13px;padding:7px 14px;border-radius:999px;background:var(--lilac-1);color:var(--brand-deep);font-weight:500">Planejamento</span>
+        </div>
+      </div>
+      <div style="border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 34px 70px rgba(60,20,110,.16)">
+        <img src="assets/acolheduc/05-professor-prompts-memorias.jpg" alt="Prompts populares e Memórias recentes na visão do professor" style="width:100%;display:block">
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isCoord }}" hint-placeholder-val="{{ false }}">
+    <div data-switch-grid style="display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:center;animation:cut .5s cubic-bezier(.16,1,.3,1) both">
+      <div>
+        <h3 style="font-size:clamp(26px,3vw,38px);margin-bottom:18px">A coordenação enxerga a escola inteira em uma tela</h3>
+        <p style="font-size:16px;color:var(--muted);margin-bottom:28px">O Mapa de Clima Escolar pinta cada turma de verde, âmbar ou vermelho. Ao lado, os alunos que precisam de intervenção, por nível de risco e há quantos dias.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 30px;display:grid;gap:0">
+          <li style="display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line);font-size:16px"><span style="color:var(--brand);font-weight:700">01</span>Mapa de Clima Escolar por turma</li>
+          <li style="display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line);font-size:16px"><span style="color:var(--brand);font-weight:700">02</span>Alunos em risco, separados por risco alto e médio</li>
+          <li style="display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:16px"><span style="color:var(--brand);font-weight:700">03</span>Cobertura Curricular BNCC por área do conhecimento</li>
+        </ul>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="display:inline-flex;align-items:center;gap:7px;font-size:13px;padding:7px 14px;border-radius:999px;background:#E3F7ED;color:#137A4B;font-weight:500"><span style="width:8px;height:8px;border-radius:50%;background:var(--green)"></span>Clima positivo</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;font-size:13px;padding:7px 14px;border-radius:999px;background:#FDF1DF;color:#8A5A06;font-weight:500"><span style="width:8px;height:8px;border-radius:50%;background:var(--amber)"></span>Atenção moderada</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;font-size:13px;padding:7px 14px;border-radius:999px;background:#FCE9E9;color:#9B2C2C;font-weight:500"><span style="width:8px;height:8px;border-radius:50%;background:var(--coral)"></span>Atenção crítica</span>
+        </div>
+      </div>
+      <div style="border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 34px 70px rgba(60,20,110,.16)">
+        <img src="assets/acolheduc/03-clima-rodape.jpg" alt="Cobertura Curricular BNCC e alunos em risco no painel da coordenação" style="width:100%;display:block">
+      </div>
+    </div>
+  </sc-if>
+</section>
+
+<section data-screen-label="Clima" style="position:relative;margin-top:clamp(64px,9vw,116px);background:linear-gradient(180deg,var(--lilac-1),var(--wash));padding:clamp(56px,8vw,96px) 0">
+  <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,44px)">
+    <div data-g2 style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:48px">
+      <div>
+        <p style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin-bottom:18px">Mapa de Clima Escolar</p>
+        <h2 style="font-size:clamp(30px,4.6vw,56px);max-width:15ch">O problema aparece <span style="font-family:var(--serif);font-style:italic;font-weight:400">antes</span> de virar reunião de emergência.</h2>
+      </div>
+      <p style="color:var(--muted);font-size:18px;padding-bottom:8px">Cada quadrado é uma turma. A cor vem dos registros que os professores fizeram naquela semana. Uma turma que esfria aparece na tela antes de aparecer no conselho de classe.</p>
+    </div>
+
+    <div data-climate style="display:grid;grid-template-columns:1.35fr 1fr;gap:24px;align-items:stretch">
+      <div style="background:#fff;border:1px solid var(--line);border-radius:24px;padding:36px;box-shadow:0 14px 40px rgba(60,20,110,.07)">
+        <p style="font-family:var(--display);font-size:22px;font-weight:600;margin-bottom:6px">Mapa de Clima Escolar</p>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:26px">Visão geral do clima de todas as turmas</p>
+        <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px">
+          <div style="aspect-ratio:1;border-radius:14px;background:var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#0B3D24;font-weight:700;line-height:1.15"><span>1º</span><span>A</span></div>
+          <div style="aspect-ratio:1;border-radius:14px;background:var(--amber);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#4A3005;font-weight:700;line-height:1.15"><span>1º</span><span>B</span></div>
+          <div style="aspect-ratio:1;border-radius:14px;background:var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#0B3D24;font-weight:700;line-height:1.15"><span>2º</span><span>A</span></div>
+          <div style="aspect-ratio:1;border-radius:14px;background:var(--coral);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#4A0F0F;font-weight:700;line-height:1.15"><span>2º</span><span>B</span></div>
+          <div style="aspect-ratio:1;border-radius:14px;background:var(--amber);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#4A3005;font-weight:700;line-height:1.15"><span>3º</span><span>A</span></div>
+          <div style="aspect-ratio:1;border-radius:14px;background:var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#0B3D24;font-weight:700;line-height:1.15"><span>3º</span><span>B</span></div>
+          <div style="aspect-ratio:1;border-radius:14px;background:var(--amber);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#4A3005;font-weight:700;line-height:1.15"><span>4º</span><span>A</span></div>
+          <div style="aspect-ratio:1;border-radius:14px;background:var(--coral);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#4A0F0F;font-weight:700;line-height:1.15"><span>4º</span><span>B</span></div>
+          <div style="aspect-ratio:1;border-radius:14px;background:var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#0B3D24;font-weight:700;line-height:1.15"><span>5º</span><span>A</span></div>
+          <div style="aspect-ratio:1;border-radius:14px;background:var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#0B3D24;font-weight:700;line-height:1.15"><span>5º</span><span>B</span></div>
+          <div style="aspect-ratio:1;border-radius:14px;background:var(--amber);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#4A3005;font-weight:700;line-height:1.15"><span>6º</span><span>A</span></div>
+          <div style="aspect-ratio:1;border-radius:14px;background:var(--coral);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#4A0F0F;font-weight:700;line-height:1.15"><span>6º</span><span>B</span></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:22px;margin-top:26px;padding-top:20px;border-top:1px solid var(--line)">
+          <span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)"><span style="width:10px;height:10px;border-radius:50%;background:var(--green)"></span>Clima positivo</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)"><span style="width:10px;height:10px;border-radius:50%;background:var(--amber)"></span>Atenção moderada</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)"><span style="width:10px;height:10px;border-radius:50%;background:var(--coral)"></span>Atenção crítica</span>
+        </div>
+        <p style="font-size:12px;color:var(--muted);margin-top:18px">Reprodução da tela do produto com dados de demonstração.</p>
+      </div>
+
+      <div style="display:grid;gap:24px;align-content:start">
+        <div style="background:var(--brand-deep);color:#fff;border-radius:24px;padding:32px;box-shadow:0 20px 44px rgba(60,20,110,.22)">
+          <p style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sun);margin-bottom:18px">O que a coordenação vê junto</p>
+          <div style="display:grid;gap:16px">
+            <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.18)">
+              <span style="font-size:15px;color:#DCCFEE">Alunos em risco</span>
+              <span style="font-family:var(--display);font-size:19px;font-weight:600">por nível e por dias</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.18)">
+              <span style="font-size:15px;color:#DCCFEE">Engajamento docente</span>
+              <span style="font-family:var(--display);font-size:19px;font-weight:600">semana a semana</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline">
+              <span style="font-size:15px;color:#DCCFEE">Cobertura BNCC</span>
+              <span style="font-family:var(--display);font-size:19px;font-weight:600">por área</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--line);border-radius:24px;padding:32px">
+          <p style="font-family:var(--display);font-size:20px;font-weight:600;margin-bottom:10px">Alunos em Risco</p>
+          <p style="font-size:14px;color:var(--muted);margin-bottom:20px">A lista sai do mapa e vira nome, turma e há quantos dias o sinal está aceso.</p>
+          <div style="display:grid;gap:10px">
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background:#FCE9E9">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--coral);flex:none"></span>
+              <span style="font-size:14px;font-weight:600;color:#9B2C2C">Risco alto</span>
+              <span style="margin-left:auto;font-size:13px;color:#9B2C2C">intervenção imediata</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background:#FDF1DF">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--amber);flex:none"></span>
+              <span style="font-size:14px;font-weight:600;color:#8A5A06">Risco médio</span>
+              <span style="margin-left:auto;font-size:13px;color:#8A5A06">acompanhar de perto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="aluno" data-screen-label="O aluno" style="max-width:1280px;margin:0 auto;padding:clamp(64px,9vw,116px) clamp(20px,5vw,44px) 0">
+  <div data-g2 style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:44px">
+    <div>
+      <p style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin-bottom:18px">Área de Perfil</p>
+      <h2 style="font-size:clamp(30px,4.6vw,56px);max-width:14ch">Cada aluno tem uma <span style="font-family:var(--serif);font-style:italic;font-weight:400">história rastreável</span>.</h2>
+    </div>
+    <p style="color:var(--muted);font-size:18px;padding-bottom:8px">Informações, resumo do dia, e três abas que respondem o que aconteceu, o que foi tentado e o que a IA leu nisso tudo.</p>
+  </div>
+
+  <div style="background:#fff;border:1px solid var(--line);border-radius:26px;padding:clamp(24px,3vw,40px);box-shadow:0 20px 50px rgba(60,20,110,.08)">
+    <div data-tabs style="display:flex;gap:6px;padding:6px;border-radius:16px;background:var(--field);margin-bottom:32px">
+      <button type="button" onClick="{{ tabHist }}" style="flex:1;border:none;cursor:pointer;font-size:15px;font-weight:600;padding:12px 18px;border-radius:11px;background:{{ histBg }};color:{{ histFg }};transition:background .3s,color .3s">Histórico</button>
+      <button type="button" onClick="{{ tabInt }}" style="flex:1;border:none;cursor:pointer;font-size:15px;font-weight:600;padding:12px 18px;border-radius:11px;background:{{ intBg }};color:{{ intFg }};transition:background .3s,color .3s">Intervenções</button>
+      <button type="button" onClick="{{ tabAn }}" style="flex:1;border:none;cursor:pointer;font-size:15px;font-weight:600;padding:12px 18px;border-radius:11px;background:{{ anBg }};color:{{ anFg }};transition:background .3s,color .3s">Análise</button>
+    </div>
+
+    <sc-if value="{{ isHist }}" hint-placeholder-val="{{ true }}">
+      <div data-switch-grid style="display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:center;animation:cut .45s cubic-bezier(.16,1,.3,1) both">
+        <div>
+          <h3 style="font-size:clamp(24px,2.6vw,34px);margin-bottom:16px">A observação vira registro datado</h3>
+          <p style="font-size:16px;color:var(--muted);margin-bottom:24px">Participação de 1 a 5, interesse, interação, o texto do professor e um resumo automático. Com o nome de quem registrou, para a conversa com a família ter lastro.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-size:13px;padding:7px 14px;border-radius:999px;background:#E3F7ED;color:#137A4B;font-weight:600">Participação 5/5</span>
+            <span style="font-size:13px;padding:7px 14px;border-radius:999px;background:#E3F7ED;color:#137A4B;font-weight:600">Interesse: sim</span>
+            <span style="font-size:13px;padding:7px 14px;border-radius:999px;background:#E3F7ED;color:#137A4B;font-weight:600">Interação: positiva</span>
+          </div>
+        </div>
+        <div style="border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 54px rgba(60,20,110,.14)">
+          <img src="assets/acolheduc/11-historico.jpg" alt="Aba Histórico com registro datado do aluno" style="width:100%;display:block">
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isInt }}" hint-placeholder-val="{{ false }}">
+      <div data-switch-grid style="display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:center;animation:cut .45s cubic-bezier(.16,1,.3,1) both">
+        <div>
+          <h3 style="font-size:clamp(24px,2.6vw,34px);margin-bottom:16px">As intervenções RTI ficam no mesmo lugar</h3>
+          <p style="font-size:16px;color:var(--muted);margin-bottom:24px">Resposta à Intervenção deixa de ser uma pasta separada. O que foi proposto para o aluno vive ao lado do que foi observado dele, e a coordenação acompanha sem pedir relatório.</p>
+          <div style="padding:18px 20px;border-radius:16px;background:var(--lilac-1);border:1px solid var(--line)">
+            <p style="font-size:14px;color:var(--brand-deep);font-weight:600;margin-bottom:4px">Módulo RTI</p>
+            <p style="font-size:14px;color:var(--muted)">Ligado ou desligado por escola, nas configurações do administrador.</p>
+          </div>
+        </div>
+        <div style="border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 54px rgba(60,20,110,.14)">
+          <img src="assets/acolheduc/12-intervencoes.jpg" alt="Aba Intervenções do perfil do aluno" style="width:100%;display:block">
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isAn }}" hint-placeholder-val="{{ false }}">
+      <div data-switch-grid style="display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:center;animation:cut .45s cubic-bezier(.16,1,.3,1) both">
+        <div>
+          <h3 style="font-size:clamp(24px,2.6vw,34px);margin-bottom:16px">A IA lê o histórico e devolve leitura, não achismo</h3>
+          <p style="font-size:16px;color:var(--muted);margin-bottom:24px">Com base nos registros, a Análise de Progresso aponta pontos fortes e áreas de desenvolvimento, sempre dizendo em quantos registros ela se apoiou.</p>
+          <div style="padding:18px 20px;border-radius:16px;background:linear-gradient(135deg,var(--brand-deep),var(--brand));color:#fff">
+            <p style="font-size:14px;font-weight:600;margin-bottom:4px">Insights baseados nos registros</p>
+            <p style="font-size:14px;color:#DCCFEE">A quantidade de observações usada aparece junto com o insight.</p>
+          </div>
+        </div>
+        <div style="border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 54px rgba(60,20,110,.14)">
+          <img src="assets/acolheduc/13-analise-ia.jpg" alt="Aba Análise com insights gerados por IA" style="width:100%;display:block">
+        </div>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<section id="ia" data-screen-label="IA" style="max-width:1280px;margin:0 auto;padding:clamp(64px,9vw,116px) clamp(20px,5vw,44px) 0">
+  <div data-g2 style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:44px">
+    <div>
+      <p style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin-bottom:18px">IA pedagógica</p>
+      <h2 style="font-size:clamp(30px,4.6vw,56px);max-width:15ch">Não é um chat solto. É um <span style="font-family:var(--serif);font-style:italic;font-weight:400">repositório de prompts</span> feito para escola.</h2>
+    </div>
+    <p style="color:var(--muted);font-size:18px;padding-bottom:8px">Relatórios, planos, atividades e boletins já vêm escritos e categorizados. O professor escolhe, ajusta e gera. Nada de aprender engenharia de prompt.</p>
+  </div>
+
+  <div data-flow style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px">
+    <div style="background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px">
+      <p style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:12px">Relatórios</p>
+      <p style="font-size:16px;font-weight:600;margin-bottom:4px">Relatório Individual</p>
+      <p style="font-size:14px;color:var(--muted)">Descritivo sobre o desenvolvimento do aluno</p>
+    </div>
+    <div style="background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px">
+      <p style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:12px">Planos</p>
+      <p style="font-size:16px;font-weight:600;margin-bottom:4px">Plano de Aula BNCC</p>
+      <p style="font-size:14px;color:var(--muted)">Alinhado à Base Nacional Comum Curricular</p>
+    </div>
+    <div style="background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px">
+      <p style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:12px">Atividades</p>
+      <p style="font-size:16px;font-weight:600;margin-bottom:4px">Atividade Diagnóstica</p>
+      <p style="font-size:14px;color:var(--muted)">Para avaliar conhecimentos prévios</p>
+    </div>
+    <div style="background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px">
+      <p style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:12px">Boletins</p>
+      <p style="font-size:16px;font-weight:600;margin-bottom:4px">Parecer Bimestral</p>
+      <p style="font-size:14px;color:var(--muted)">Parecer descritivo para o boletim</p>
+    </div>
+  </div>
+
+  <div data-switch-grid style="display:grid;grid-template-columns:1.15fr 1fr;gap:24px">
+    <div style="border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 28px 60px rgba(60,20,110,.14)">
+      <img src="assets/acolheduc/06-prompts-repositorio.jpg" alt="Repositório de Prompts do Acolheduc" style="width:100%;display:block">
+    </div>
+    <div style="border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 28px 60px rgba(60,20,110,.14)">
+      <img src="assets/acolheduc/16-assistente-ia.jpg" alt="Assistente IA, gerador de relatórios personalizados" style="width:100%;display:block">
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Insights e planejamento" style="max-width:1280px;margin:0 auto;padding:clamp(64px,9vw,116px) clamp(20px,5vw,44px) 0">
+  <div data-switch-grid style="display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:center;margin-bottom:64px">
+    <div>
+      <p style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin-bottom:18px">Insights pedagógicos</p>
+      <h2 style="font-size:clamp(28px,3.6vw,44px);margin-bottom:18px">Participação por dia da semana, engajamento por turma</h2>
+      <p style="font-size:17px;color:var(--muted);margin-bottom:26px">A Visão Geral da Turma separa Gráficos, Destaques e Atenção Especial. É o dado que já existe nos registros, virando gráfico sem ninguém montar planilha.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="font-size:13px;padding:7px 14px;border-radius:999px;background:var(--lilac-1);color:var(--brand-deep);font-weight:600">Gráficos</span>
+        <span style="font-size:13px;padding:7px 14px;border-radius:999px;background:var(--lilac-1);color:var(--brand-deep);font-weight:600">Destaques</span>
+        <span style="font-size:13px;padding:7px 14px;border-radius:999px;background:var(--lilac-1);color:var(--brand-deep);font-weight:600">Atenção Especial</span>
+      </div>
+    </div>
+    <div style="border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 64px rgba(60,20,110,.14)">
+      <img src="assets/acolheduc/15-insights-2.jpg" alt="Gráficos de participação por dia da semana e engajamento por turma" style="width:100%;display:block">
+    </div>
+  </div>
+
+  <div data-switch-grid style="display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center">
+    <div style="border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 64px rgba(60,20,110,.14)">
+      <img src="assets/acolheduc/08-planejamento.jpg" alt="Planejamento Pedagógico com status de aprovação" style="width:100%;display:block">
+    </div>
+    <div>
+      <p style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin-bottom:18px">Planejamento pedagógico</p>
+      <h2 style="font-size:clamp(28px,3.6vw,44px);margin-bottom:18px">Entrega de planejamento com fluxo de aprovação</h2>
+      <p style="font-size:17px;color:var(--muted);margin-bottom:26px">Da Educação Infantil ao Ensino Médio, cada planejamento mensal tem etapa, turma, mês e um status que todo mundo enxerga.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="font-size:13px;padding:7px 14px;border-radius:999px;background:#E3F7ED;color:#137A4B;font-weight:600">Aprovado</span>
+        <span style="font-size:13px;padding:7px 14px;border-radius:999px;background:#FDF1DF;color:#8A5A06;font-weight:600">Pendente</span>
+        <span style="font-size:13px;padding:7px 14px;border-radius:999px;background:var(--field);color:var(--muted);font-weight:600">Rascunho</span>
+        <span style="font-size:13px;padding:7px 14px;border-radius:999px;background:#FDE8D8;color:#9A4B10;font-weight:600">Em revisão</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="enterprise" data-screen-label="Enterprise" style="position:relative;overflow:hidden;margin-top:clamp(64px,9vw,116px);background:var(--brand-deep);color:#fff;padding:clamp(64px,8vw,110px) 0">
+  <div style="position:absolute;top:-120px;right:-80px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(245,194,75,.20),transparent 66%);pointer-events:none"></div>
+  <div style="position:absolute;bottom:-160px;left:-100px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(168,85,247,.34),transparent 66%);pointer-events:none"></div>
+  <div style="position:relative;max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,44px)">
+    <div data-g2 style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:52px">
+      <div>
+        <span style="display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sun);margin-bottom:22px">Acolheduc Enterprise</span>
+        <h2 style="font-size:clamp(30px,4.6vw,56px);color:#fff;max-width:14ch">Uma rede inteira, <span style="font-family:var(--serif);font-style:italic;font-weight:400">com a marca de cada escola</span>.</h2>
+      </div>
+      <p style="color:#DCCFEE;font-size:18px;padding-bottom:8px">Multi-tenant de verdade: cada escola tem seu endereço, seus usuários, seu logo e os módulos que ela decidiu ligar.</p>
+    </div>
+
+    <div data-ent style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+      <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:32px">
+        <p style="font-family:var(--display);font-size:24px;font-weight:600;margin-bottom:10px;color:#fff">Painel do administrador</p>
+        <p style="font-size:15px;color:#DCCFEE;margin-bottom:24px">Usuários com cargo e status, identidade da escola com upload de logo, e uma chave para cada módulo.</p>
+        <div style="display:grid;gap:12px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.08)">
+            <span style="font-size:15px;color:#fff">Módulo RTI</span>
+            <span style="display:inline-flex;align-items:center;width:44px;height:24px;border-radius:999px;background:var(--brand-bright);padding:3px;justify-content:flex-end"><span style="width:18px;height:18px;border-radius:50%;background:#fff"></span></span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.08)">
+            <span style="font-size:15px;color:#fff">Identidade da escola</span>
+            <span style="font-size:13px;color:var(--sun);font-weight:600">logo próprio</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.08)">
+            <span style="font-size:15px;color:#fff">Cargos</span>
+            <span style="font-size:13px;color:var(--sun);font-weight:600">coordenador e professor</span>
+          </div>
+        </div>
+      </div>
+      <div style="border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.2);box-shadow:0 30px 60px rgba(0,0,0,.28)">
+        <img src="assets/acolheduc/18-admin-config.jpg" alt="Configurações da escola, identidade e módulos ativos" style="width:100%;display:block">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section data-screen-label="Por que" style="max-width:1280px;margin:0 auto;padding:clamp(64px,9vw,116px) clamp(20px,5vw,44px) 0">
+  <div data-g2 style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start">
+    <div>
+      <p style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin-bottom:18px">Por que Acolheduc</p>
+      <h2 style="font-size:clamp(28px,4.2vw,50px);max-width:14ch;margin-bottom:22px">Acompanhamento que <span style="font-family:var(--serif);font-style:italic;font-weight:400">cabe na rotina</span> da escola.</h2>
+      <p style="color:var(--muted);font-size:18px;margin-bottom:34px;max-width:440px">Uma forma nova de acompanhar, documentar e desenvolver cada aluno, em qualquer rede de ensino.</p>
+      <ul style="list-style:none;padding:0;margin:0;display:grid;gap:0">
+        <li style="display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line);font-size:16px"><span style="color:var(--brand);font-weight:700">✓</span>Reduz o tempo de documentação pedagógica</li>
+        <li style="display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line);font-size:16px"><span style="color:var(--brand);font-weight:700">✓</span>Acompanhamento individualizado, mesmo em redes grandes</li>
+        <li style="display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line);font-size:16px"><span style="color:var(--brand);font-weight:700">✓</span>Relatórios automatizados para pais e responsáveis</li>
+        <li style="display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line);font-size:16px"><span style="color:var(--brand);font-weight:700">✓</span>Conformidade LGPD por padrão</li>
+        <li style="display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line);font-size:16px"><span style="color:var(--brand);font-weight:700">✓</span>Treinamento da equipe incluso</li>
+        <li style="display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:16px"><span style="color:var(--brand);font-weight:700">✓</span>Suporte pedagógico contínuo</li>
+      </ul>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--line);border-radius:24px;padding:40px;box-shadow:0 14px 40px rgba(60,20,110,.07)">
+      <p style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:24px">Stack tecnológica</p>
+      <div data-stack style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div style="background:var(--lilac-1);border-radius:16px;padding:18px"><p style="font-size:16px;font-weight:600">React</p><p style="font-size:13px;color:var(--muted)">Frontend</p></div>
+        <div style="background:var(--lilac-1);border-radius:16px;padding:18px"><p style="font-size:16px;font-weight:600">TypeScript</p><p style="font-size:13px;color:var(--muted)">Linguagem</p></div>
+        <div style="background:var(--lilac-1);border-radius:16px;padding:18px"><p style="font-size:16px;font-weight:600">Node.js</p><p style="font-size:13px;color:var(--muted)">Backend</p></div>
+        <div style="background:var(--lilac-1);border-radius:16px;padding:18px"><p style="font-size:16px;font-weight:600">PostgreSQL</p><p style="font-size:13px;color:var(--muted)">Banco de dados</p></div>
+        <div style="background:var(--lilac-1);border-radius:16px;padding:18px"><p style="font-size:16px;font-weight:600">Prisma</p><p style="font-size:13px;color:var(--muted)">ORM</p></div>
+        <div style="background:var(--lilac-1);border-radius:16px;padding:18px"><p style="font-size:16px;font-weight:600">OpenAI</p><p style="font-size:13px;color:var(--muted)">IA</p></div>
+      </div>
+      <div style="margin-top:20px;padding:22px;border-radius:16px;background:linear-gradient(135deg,var(--brand-deep),var(--brand));color:#fff">
+        <p style="font-size:16px;font-weight:600;margin-bottom:4px">Arquitetura Auri Gen 2</p>
+        <p style="font-size:14px;color:#DCCFEE">Performance e escalabilidade enterprise, com deploy contínuo e monitoramento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="falar" data-screen-label="Contato" style="position:relative;overflow:hidden;margin-top:clamp(64px,9vw,116px);background:linear-gradient(165deg,#EFE2FB,#FAF7FE 55%,#FCF3F8);padding:clamp(64px,8vw,110px) 0">
+  <div style="position:absolute;top:-140px;right:-100px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(168,85,247,.18),transparent 68%);animation:drift 26s ease-in-out infinite;pointer-events:none"></div>
+  <div style="position:relative;max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,44px)">
+    <div data-g2 style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+      <div>
+        <p style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin-bottom:18px">Implantação em redes de qualquer porte</p>
+        <h2 style="font-size:clamp(32px,4.8vw,60px);max-width:12ch;margin-bottom:22px">Sua gestão escolar pode ser <span style="font-family:var(--serif);font-style:italic;font-weight:400;color:var(--brand)">mais humana</span>.</h2>
+        <p style="font-size:18px;color:var(--muted);margin-bottom:34px;max-width:420px">Veja o acompanhamento pedagógico sair das planilhas e virar inteligência em tempo real. A conversa inicial é sem custo.</p>
+        <div data-cta-row style="display:flex;gap:14px">
+          <a href="https://acolheduc-app.vercel.app/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;color:#fff;background:linear-gradient(135deg,var(--brand-bright),var(--brand-deep));padding:17px 30px;border-radius:999px;box-shadow:0 10px 30px rgba(126,34,206,.3);transition:transform .25s" style-hover="transform:translateY(-2px);color:#fff">Entrar na demo</a>
+          <a href="AuriSolutions - Landing.dc.html" style="display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;color:var(--brand-deep);background:rgba(255,255,255,.85);border:1px solid var(--line);padding:17px 30px;border-radius:999px;transition:background .25s" style-hover="background:#fff;color:var(--brand-deep)">Conhecer a Auri</a>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:26px;padding:44px;box-shadow:0 30px 70px rgba(60,20,110,.14);border:1px solid rgba(255,255,255,.9)">
+        <p style="font-family:var(--display);font-size:26px;font-weight:600;margin-bottom:6px">Agendar uma demonstração</p>
+        <p style="font-size:15px;color:var(--muted);margin-bottom:28px">Resposta em até 24 horas úteis.</p>
+        <div style="display:grid;gap:18px">
+          <label style="display:block">
+            <span style="display:block;font-size:14px;font-weight:600;margin-bottom:8px">Nome</span>
+            <input type="text" placeholder="Seu nome" style="width:100%;padding:15px 16px;border-radius:14px;border:1px solid transparent;background:var(--field);color:var(--ink);outline:none" style-focus="border-color:var(--brand)">
+          </label>
+          <label style="display:block">
+            <span style="display:block;font-size:14px;font-weight:600;margin-bottom:8px">Escola ou rede</span>
+            <input type="text" placeholder="Nome da instituição" style="width:100%;padding:15px 16px;border-radius:14px;border:1px solid transparent;background:var(--field);color:var(--ink);outline:none" style-focus="border-color:var(--brand)">
+          </label>
+          <label style="display:block">
+            <span style="display:block;font-size:14px;font-weight:600;margin-bottom:8px">E-mail</span>
+            <input type="email" placeholder="seu@escola.com.br" style="width:100%;padding:15px 16px;border-radius:14px;border:1px solid transparent;background:var(--field);color:var(--ink);outline:none" style-focus="border-color:var(--brand)">
+          </label>
+          <label style="display:block">
+            <span style="display:block;font-size:14px;font-weight:600;margin-bottom:8px">Seu papel na escola</span>
+            <select style="width:100%;padding:15px 16px;border-radius:14px;border:1px solid transparent;background:var(--field);color:var(--ink);outline:none;cursor:pointer">
+              <option>Direção ou mantenedora</option>
+              <option>Coordenação pedagógica</option>
+              <option>Professor</option>
+              <option>Gestão de rede</option>
+            </select>
+          </label>
+          <button type="button" style="width:100%;padding:18px;border-radius:999px;border:none;background:linear-gradient(135deg,var(--brand-bright),var(--brand-deep));color:#fff;font-size:16px;font-weight:600;cursor:pointer;transition:transform .25s,box-shadow .25s;box-shadow:0 10px 30px rgba(126,34,206,.3)" style-hover="transform:translateY(-2px);box-shadow:0 16px 40px rgba(126,34,206,.4)">Enviar mensagem</button>
+          <p style="font-size:13px;color:var(--muted);text-align:center">Ou escreva para <a href="mailto:aurisolutions@gmail.com">aurisolutions@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="max-width:1280px;margin:0 auto;padding:clamp(56px,7vw,88px) clamp(20px,5vw,44px) 56px">
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:48px;flex-wrap:wrap">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <span style="font-family:var(--display);font-weight:700;font-size:23px;letter-spacing:-0.035em;background:linear-gradient(100deg,var(--brand-bright),var(--brand-deep));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Acolheduc</span>
+        <span style="font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--brand);background:var(--lilac-2);padding:4px 10px;border-radius:8px">Enterprise</span>
+      </div>
+      <p style="font-size:15px;color:var(--muted);max-width:300px">Gestão escolar inteligente. Um produto AuriSolutions, em produção.</p>
+      <p style="font-size:15px;margin-top:12px"><a href="https://acolheduc.com.br" target="_blank" rel="noopener noreferrer">acolheduc.com.br</a></p>
+    </div>
+    <div style="display:flex;gap:64px;flex-wrap:wrap">
+      <div style="display:grid;gap:10px">
+        <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px">Plataforma</span>
+        <a href="#dois-mundos" style="font-size:15px;color:var(--ink)" style-hover="color:var(--brand)">Professor e Coordenação</a>
+        <a href="#aluno" style="font-size:15px;color:var(--ink)" style-hover="color:var(--brand)">Área de Perfil</a>
+        <a href="#ia" style="font-size:15px;color:var(--ink)" style-hover="color:var(--brand)">IA pedagógica</a>
+        <a href="#enterprise" style="font-size:15px;color:var(--ink)" style-hover="color:var(--brand)">Enterprise</a>
+      </div>
+      <div style="display:grid;gap:10px">
+        <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px">AuriSolutions</span>
+        <a href="AuriSolutions - Landing.dc.html" style="font-size:15px;color:var(--ink)" style-hover="color:var(--brand)">O estúdio</a>
+        <a href="https://acolheduc-app.vercel.app/" target="_blank" rel="noopener noreferrer" style="font-size:15px;color:var(--ink)" style-hover="color:var(--brand)">Demo ao vivo</a>
+        <a href="#falar" style="font-size:15px;color:var(--ink)" style-hover="color:var(--brand)">Contato</a>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:44px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap">
+    <span style="font-size:14px;color:var(--muted)">© 2026 AuriSolutions. Todos os direitos reservados.</span>
+    <span style="font-size:14px;color:var(--muted)">LGPD compliant · BNCC integrada · Multi-tenant ready</span>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280}}">
+class Component extends DCLogic {
+  state = { view: 'prof', tab: 'hist' };
+  renderVals() {
+    const v = this.state.view, t = this.state.tab;
+    const on = { bg: '#7E22CE', fg: '#ffffff' };
+    const off = { bg: 'transparent', fg: '#6E6180' };
+    const tabOn = { bg: '#ffffff', fg: '#241B33' };
+    const tabOff = { bg: 'transparent', fg: '#6E6180' };
+    const p = v === 'prof' ? on : off, c = v === 'coord' ? on : off;
+    const h = t === 'hist' ? tabOn : tabOff, i = t === 'int' ? tabOn : tabOff, a = t === 'an' ? tabOn : tabOff;
+    return {
+      isProf: v === 'prof', isCoord: v === 'coord',
+      profBg: p.bg, profFg: p.fg, coordBg: c.bg, coordFg: c.fg,
+      pickProf: () => this.setState({ view: 'prof' }),
+      pickCoord: () => this.setState({ view: 'coord' }),
+      isHist: t === 'hist', isInt: t === 'int', isAn: t === 'an',
+      histBg: h.bg, histFg: h.fg, intBg: i.bg, intFg: i.fg, anBg: a.bg, anFg: a.fg,
+      tabHist: () => this.setState({ tab: 'hist' }),
+      tabInt: () => this.setState({ tab: 'int' }),
+      tabAn: () => this.setState({ tab: 'an' }),
+    };
+  }
+}
+</script>
+</body>
+</html>

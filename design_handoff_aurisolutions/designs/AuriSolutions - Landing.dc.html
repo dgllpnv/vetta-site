@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF9F4; --paper-2:#F4F1E9; --ink:#14141C; --ink-2:#3D3D4A;
+    --muted:#6B6B78; --line:#E4E0D6; --primary:#3A2FD6; --primary-tint:#ECEAFC;
+    --acolheduc:#6D28D9; --nexus:#BE185D; --lumina:#B45309; --coldre:#166534;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Figtree',sans-serif; --serif:'Instrument Serif',Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:var(--display);font-weight:600;margin:0;letter-spacing:-0.035em;line-height:1.02;text-wrap:balance}
+  p{margin:0;text-wrap:pretty}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{color:#241CA8}
+  ::selection{background:#D9D5FA;color:var(--ink)}
+  input,textarea,button,select{font-family:inherit;font-size:inherit}
+  @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fanIn{from{opacity:0;transform:translateY(48px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+  @media (max-width:1023px){
+    [data-g="3"],[data-g="4"]{grid-template-columns:1fr 1fr !important;gap:24px !important}
+    [data-g="4"] > div{border-right:none !important;padding:24px 0 !important;border-top:1px solid var(--line)}
+    [data-prod]{grid-template-columns:1fr !important;gap:32px !important;padding:32px !important}
+    [data-prod] [data-media]{order:-1}
+    [data-g="2"]{grid-template-columns:1fr !important;gap:32px !important}
+    [data-offer-hi]{transform:none !important}
+  }
+  @media (max-width:767px){
+    [data-g="3"],[data-g="4"]{grid-template-columns:1fr !important}
+    [data-navlinks]{display:none !important}
+    [data-fan]{overflow-x:auto;justify-content:flex-start !important;gap:12px !important;padding-bottom:8px}
+    [data-fan] > div{width:74% !important;flex:none;margin-left:0 !important;transform:none !important}
+    [data-cta-row]{flex-direction:column !important;align-items:stretch !important}
+    [data-cta-row] > a{text-align:center}
+    [data-form-row]{grid-template-columns:1fr !important}
+  }
+</style>
+</helmet>
+
+<div style="background:var(--paper);overflow-x:hidden">
+
+<header style="position:sticky;top:0;z-index:60;background:rgba(251,249,244,.86);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,40px);display:flex;align-items:center;justify-content:space-between;height:72px">
+    <a href="#" style="font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:-0.03em;color:var(--ink)">AuriSolutions</a>
+    <nav style="display:flex;align-items:center;gap:36px">
+      <span data-navlinks style="display:flex;align-items:center;gap:36px">
+        <a href="#produtos" style="font-size:15px;color:var(--muted)" style-hover="color:var(--ink)">Produtos</a>
+        <a href="#sob-medida" style="font-size:15px;color:var(--muted)" style-hover="color:var(--ink)">Sob medida</a>
+        <a href="#trabalhar" style="font-size:15px;color:var(--muted)" style-hover="color:var(--ink)">Como trabalhamos</a>
+      </span>
+      <a href="#contato" style="font-size:15px;font-weight:500;color:var(--paper);background:var(--ink);padding:11px 20px;border-radius:999px;transition:background .25s" style-hover="background:var(--primary);color:var(--paper)">Falar com a gente</a>
+    </nav>
+  </div>
+</header>
+
+<section style="max-width:1240px;margin:0 auto;padding:clamp(56px,9vw,112px) clamp(20px,5vw,40px) 0;position:relative">
+  <div style="display:inline-flex;align-items:center;gap:10px;padding:7px 16px;border-radius:999px;background:var(--primary-tint);margin-bottom:36px;animation:rise .7s cubic-bezier(.16,1,.3,1) both">
+    <span style="width:7px;height:7px;border-radius:50%;background:var(--primary)"></span>
+    <span style="font-size:13px;font-weight:500;color:var(--primary);letter-spacing:.01em">Quatro produtos em produção, agora</span>
+  </div>
+
+  <h1 style="font-size:clamp(38px,7.6vw,96px);max-width:15ch;margin:0;animation:rise .8s cubic-bezier(.16,1,.3,1) .08s both">
+    Software vertical de qualidade enterprise, <span style="font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-0.01em;color:var(--primary)">entregue em semanas</span>.
+  </h1>
+
+  <div data-g="2" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:44px;max-width:900px;animation:rise .8s cubic-bezier(.16,1,.3,1) .16s both">
+    <p style="color:var(--ink);font-size:18px">A Auri é um estúdio de produtos digitais verticais. Construímos, somos donos e licenciamos quatro SaaS que hoje operam escolas, hotéis, aulas em realidade virtual e clubes de tiro esportivo.</p>
+    <p style="color:var(--muted);font-size:18px">Quando o que você precisa não existe pronto, a gente constrói sob medida, e automatiza o que sua equipe ainda faz na mão.</p>
+  </div>
+
+  <div data-cta-row style="display:flex;gap:16px;margin-top:44px;animation:rise .8s cubic-bezier(.16,1,.3,1) .24s both">
+    <a href="#produtos" style="font-size:16px;font-weight:500;color:var(--paper);background:var(--primary);padding:16px 30px;border-radius:999px;transition:transform .25s,box-shadow .25s;box-shadow:0 6px 24px rgba(58,47,214,.22)" style-hover="transform:translateY(-2px);box-shadow:0 12px 32px rgba(58,47,214,.3);color:var(--paper)">Ver os produtos</a>
+    <a href="#sob-medida" style="font-size:16px;font-weight:500;color:var(--ink);border:1px solid var(--ink);padding:16px 30px;border-radius:999px;transition:background .25s" style-hover="background:var(--ink);color:var(--paper)">Preciso de algo sob medida</a>
+  </div>
+</section>
+
+<section style="max-width:1240px;margin:0 auto;padding:clamp(48px,7vw,88px) clamp(20px,5vw,40px) 0">
+  <div data-fan style="display:flex;justify-content:center;align-items:flex-end;gap:0;animation:fanIn 1s cubic-bezier(.16,1,.3,1) .34s both">
+    <div style="width:26%;transform:rotate(-7deg) translateY(22px);transition:transform .45s cubic-bezier(.16,1,.3,1);border-radius:12px;overflow:hidden;box-shadow:0 18px 44px rgba(20,20,28,.16);border:1px solid var(--line);background:#fff;position:relative;z-index:1" style-hover="transform:rotate(-7deg) translateY(0px) scale(1.04)">
+      <div style="height:4px;background:var(--acolheduc)"></div>
+      <img src="assets/products/acolheduc/login.png" alt="Acolheduc, interface real" style="width:100%;display:block">
+    </div>
+    <div style="width:26%;transform:rotate(-2.5deg) translateY(4px);margin-left:-3%;transition:transform .45s cubic-bezier(.16,1,.3,1);border-radius:12px;overflow:hidden;box-shadow:0 18px 44px rgba(20,20,28,.16);border:1px solid var(--line);background:#fff;position:relative;z-index:2" style-hover="transform:rotate(-2.5deg) translateY(-16px) scale(1.04)">
+      <div style="height:4px;background:var(--nexus)"></div>
+      <img src="assets/products/nexusvr/home.png" alt="NexusVR, interface real" style="width:100%;display:block">
+    </div>
+    <div style="width:26%;transform:rotate(2.5deg) translateY(4px);margin-left:-3%;transition:transform .45s cubic-bezier(.16,1,.3,1);border-radius:12px;overflow:hidden;box-shadow:0 18px 44px rgba(20,20,28,.16);border:1px solid var(--line);background:#fff;position:relative;z-index:3" style-hover="transform:rotate(2.5deg) translateY(-16px) scale(1.04)">
+      <div style="height:4px;background:var(--lumina)"></div>
+      <img src="assets/products/lumina/home.png" alt="Lumina, interface real" style="width:100%;display:block">
+    </div>
+    <div style="width:26%;transform:rotate(7deg) translateY(22px);margin-left:-3%;transition:transform .45s cubic-bezier(.16,1,.3,1);border-radius:12px;overflow:hidden;box-shadow:0 18px 44px rgba(20,20,28,.16);border:1px solid var(--line);background:#fff;position:relative;z-index:4" style-hover="transform:rotate(7deg) translateY(0px) scale(1.04)">
+      <div style="height:4px;background:var(--coldre)"></div>
+      <img src="assets/products/cbt/dashboard.png" alt="Coldre System, interface real" style="width:100%;display:block">
+    </div>
+  </div>
+  <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:28px">Telas reais dos quatro produtos, capturadas em produção. Passe o mouse.</p>
+</section>
+
+<section style="max-width:1240px;margin:80px auto 0;padding:0 clamp(20px,5vw,40px)">
+  <div style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
+    <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">Construído com</span>
+    <div style="display:flex;flex-wrap:wrap;gap:32px;font-size:15px;font-weight:500;color:var(--ink)">
+      <span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>Prisma</span><span>Vercel</span><span>n8n</span>
+    </div>
+    <div style="display:flex;gap:20px;font-size:13px;color:var(--muted)">
+      <span>LGPD compliant</span><span>99,9% uptime</span><span>Multi-tenant</span>
+    </div>
+  </div>
+</section>
+
+<section id="produtos" data-screen-label="Produtos" style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,128px) clamp(20px,5vw,40px) 0">
+  <div data-g="2" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:72px">
+    <div>
+      <p style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);margin-bottom:20px">Produtos próprios</p>
+      <h2 style="font-size:clamp(30px,5vw,64px);max-width:14ch">Quatro verticais. Quatro produtos <span style="font-family:var(--serif);font-style:italic;font-weight:400">no ar</span>.</h2>
+    </div>
+    <p style="color:var(--muted);font-size:18px;padding-bottom:8px">Cada um nasceu de um problema real de um setor específico, e continua rodando com cliente pagando. Não são conceitos: são sistemas em operação, com uptime medido e conformidade LGPD.</p>
+  </div>
+
+  <div style="display:grid;gap:28px">
+    <article data-prod style="display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:center;background:var(--paper-2);border-radius:20px;padding:48px;transition:transform .4s cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px)">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+          <span style="width:28px;height:3px;background:var(--acolheduc);border-radius:2px"></span>
+          <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--acolheduc);font-weight:600">Gestão escolar</span>
+        </div>
+        <h3 style="font-size:clamp(28px,3.6vw,44px);margin-bottom:18px">Acolheduc</h3>
+        <p style="color:var(--ink);margin-bottom:26px">Plataforma pedagógica para redes de ensino. Acompanhamento RTI, portfólio digital de evidências e geração de conteúdo assistida por IA, devolvendo ao educador o tempo de cuidar de cada aluno.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 30px;display:grid;gap:10px">
+          <li style="display:flex;gap:12px;font-size:15px;color:var(--muted)"><span style="color:var(--acolheduc)">–</span>Multi-tenant para redes de 50 a 500 alunos</li>
+          <li style="display:flex;gap:12px;font-size:15px;color:var(--muted)"><span style="color:var(--acolheduc)">–</span>Dashboard RTI com indicadores de intervenção</li>
+          <li style="display:flex;gap:12px;font-size:15px;color:var(--muted)"><span style="color:var(--acolheduc)">–</span>LGPD por padrão</li>
+        </ul>
+        <div style="display:flex;align-items:center;gap:24px">
+          <a href="https://acolheduc-app.vercel.app/" target="_blank" rel="noopener noreferrer" style="font-size:15px;font-weight:500;color:var(--paper);background:var(--acolheduc);padding:13px 24px;border-radius:999px" style-hover="color:var(--paper);opacity:.88">Ver demo ao vivo</a>
+          <a href="#" style="font-size:15px;font-weight:500;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:2px" style-hover="border-color:var(--ink);color:var(--ink)">Conhecer o produto</a>
+        </div>
+      </div>
+      <div data-media style="border-radius:14px;overflow:hidden;box-shadow:0 20px 50px rgba(20,20,28,.14);border:1px solid var(--line)"><img src="assets/products/acolheduc/login.png" alt="Acolheduc, interface real do produto" style="width:100%;display:block"></div>
+    </article>
+
+    <article data-prod style="display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center;background:var(--paper-2);border-radius:20px;padding:48px;transition:transform .4s cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px)">
+      <div data-media style="border-radius:14px;overflow:hidden;box-shadow:0 20px 50px rgba(20,20,28,.14);border:1px solid var(--line)"><img src="assets/products/nexusvr/home.png" alt="NexusVR, interface real do produto" style="width:100%;display:block"></div>
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+          <span style="width:28px;height:3px;background:var(--nexus);border-radius:2px"></span>
+          <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--nexus);font-weight:600">Educação imersiva</span>
+        </div>
+        <h3 style="font-size:clamp(28px,3.6vw,44px);margin-bottom:18px">NexusVR</h3>
+        <p style="color:var(--ink);margin-bottom:26px">Aulas imersivas em Meta Quest 3 e WebXR. O conteúdo que era assistido passa a ser vivido, com analytics de uso por turma e por aluno, sem instalar nada.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 30px;display:grid;gap:10px">
+          <li style="display:flex;gap:12px;font-size:15px;color:var(--muted)"><span style="color:var(--nexus)">–</span>Meta Quest 3 e WebXR no navegador</li>
+          <li style="display:flex;gap:12px;font-size:15px;color:var(--muted)"><span style="color:var(--nexus)">–</span>Biblioteca de aulas imersivas</li>
+          <li style="display:flex;gap:12px;font-size:15px;color:var(--muted)"><span style="color:var(--nexus)">–</span>Analytics de engajamento</li>
+        </ul>
+        <div style="display:flex;align-items:center;gap:24px">
+          <a href="https://nexus-vr-edu-final.vercel.app/" target="_blank" rel="noopener noreferrer" style="font-size:15px;font-weight:500;color:var(--paper);background:var(--nexus);padding:13px 24px;border-radius:999px" style-hover="color:var(--paper);opacity:.88">Ver demo ao vivo</a>
+          <a href="#" style="font-size:15px;font-weight:500;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:2px" style-hover="border-color:var(--ink);color:var(--ink)">Conhecer o produto</a>
+        </div>
+      </div>
+    </article>
+
+    <article data-prod style="display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:center;background:var(--paper-2);border-radius:20px;padding:48px;transition:transform .4s cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px)">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+          <span style="width:28px;height:3px;background:var(--lumina);border-radius:2px"></span>
+          <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--lumina);font-weight:600">Hospitalidade</span>
+        </div>
+        <h3 style="font-size:clamp(28px,3.6vw,44px);margin-bottom:18px">Lumina</h3>
+        <p style="color:var(--ink);margin-bottom:26px">PDV e PMS na mesma plataforma, com controle financeiro e DRE automático em tempo real. Feito para quem trata hospitalidade como ofício: pousadas boutique, hotéis e restaurantes fine dining.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 30px;display:grid;gap:10px">
+          <li style="display:flex;gap:12px;font-size:15px;color:var(--muted)"><span style="color:var(--lumina)">–</span>PDV moderno integrado ao PMS</li>
+          <li style="display:flex;gap:12px;font-size:15px;color:var(--muted)"><span style="color:var(--lumina)">–</span>DRE automático, sem planilha paralela</li>
+          <li style="display:flex;gap:12px;font-size:15px;color:var(--muted)"><span style="color:var(--lumina)">–</span>Operação em tempo real</li>
+        </ul>
+        <div style="display:flex;align-items:center;gap:24px">
+          <a href="https://lumina-host-ten.vercel.app/" target="_blank" rel="noopener noreferrer" style="font-size:15px;font-weight:500;color:var(--paper);background:var(--lumina);padding:13px 24px;border-radius:999px" style-hover="color:var(--paper);opacity:.88">Ver demo ao vivo</a>
+          <a href="#" style="font-size:15px;font-weight:500;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:2px" style-hover="border-color:var(--ink);color:var(--ink)">Conhecer o produto</a>
+        </div>
+      </div>
+      <div data-media style="border-radius:14px;overflow:hidden;box-shadow:0 20px 50px rgba(20,20,28,.14);border:1px solid var(--line)"><img src="assets/products/lumina/home.png" alt="Lumina, interface real do produto" style="width:100%;display:block"></div>
+    </article>
+
+    <article data-prod style="display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center;background:var(--paper-2);border-radius:20px;padding:48px;transition:transform .4s cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px)">
+      <div data-media style="border-radius:14px;overflow:hidden;box-shadow:0 20px 50px rgba(20,20,28,.14);border:1px solid var(--line)"><img src="assets/products/cbt/dashboard.png" alt="Coldre System, interface real do produto" style="width:100%;display:block"></div>
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+          <span style="width:28px;height:3px;background:var(--coldre);border-radius:2px"></span>
+          <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--coldre);font-weight:600">Tiro esportivo</span>
+        </div>
+        <h3 style="font-size:clamp(28px,3.6vw,44px);margin-bottom:18px">Coldre System</h3>
+        <p style="color:var(--ink);margin-bottom:26px">O sistema operacional do clube. Associados, presença por baia, anuidades e habitualidade CR/CAC, com auditoria nativa e transações ACID em todas as operações sensíveis.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 30px;display:grid;gap:10px">
+          <li style="display:flex;gap:12px;font-size:15px;color:var(--muted)"><span style="color:var(--coldre)">–</span>Habitualidade CR/CAC com alertas</li>
+          <li style="display:flex;gap:12px;font-size:15px;color:var(--muted)"><span style="color:var(--coldre)">–</span>Auditoria nativa em cada operação</li>
+          <li style="display:flex;gap:12px;font-size:15px;color:var(--muted)"><span style="color:var(--coldre)">–</span>Portal do associado e balcão</li>
+        </ul>
+        <div style="display:flex;align-items:center;gap:24px">
+          <a href="#" style="font-size:15px;font-weight:500;color:var(--paper);background:var(--coldre);padding:13px 24px;border-radius:999px" style-hover="color:var(--paper);opacity:.88">Conhecer o produto</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="sob-medida" data-screen-label="Sob medida" style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,136px) clamp(20px,5vw,40px) 0">
+  <div data-g="2" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:64px">
+    <div>
+      <p style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);margin-bottom:20px">Sob medida</p>
+      <h2 style="font-size:clamp(30px,5vw,64px);max-width:16ch">E quando o que você precisa <span style="font-family:var(--serif);font-style:italic;font-weight:400">ainda não existe</span>?</h2>
+    </div>
+    <p style="color:var(--muted);font-size:18px;padding-bottom:8px">A gente constrói. Mesma equipe, mesma arquitetura, mesmo padrão de qualidade dos quatro produtos que você acabou de ver rodando.</p>
+  </div>
+
+  <div data-g="2" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:64px">
+    <div style="padding:44px;border-radius:20px;border:1px solid var(--line)">
+      <p style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:20px">Hoje</p>
+      <h3 style="font-size:clamp(24px,2.8vw,34px);margin-bottom:16px;color:var(--muted)">A ideia está travada em planilha e apresentação</h3>
+      <p style="color:var(--muted)">O processo existe na cabeça das pessoas, o controle mora em abas de planilha, e cada nova exceção vira mais uma coluna. Cresce, mas não escala.</p>
+    </div>
+    <div style="padding:44px;border-radius:20px;background:var(--ink);color:var(--paper)">
+      <p style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9C97F0;margin-bottom:20px">Depois</p>
+      <h3 style="font-size:clamp(24px,2.8vw,34px);margin-bottom:16px;color:var(--paper)">Vira software em produção, com dono e manutenção</h3>
+      <p style="color:#B9B9C6">Arquitetura Gen 2, deploy contínuo, monitoramento e uma equipe que continua por perto depois que entra no ar. Sem jargão e sem proposta de 80 páginas.</p>
+    </div>
+  </div>
+
+  <div data-g="4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)">
+    <div style="padding:32px 32px 32px 0;border-right:1px solid var(--line)">
+      <p style="font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.12em;color:var(--primary);margin-bottom:14px">SEMANA 0</p>
+      <h4 style="font-size:22px;margin-bottom:10px">Você nos conta</h4>
+      <p style="font-size:15px;color:var(--muted)">Trinta minutos, sem custo. Entendemos como você trabalha hoje, onde dói e o que já tentaram antes.</p>
+    </div>
+    <div style="padding:32px;border-right:1px solid var(--line)">
+      <p style="font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.12em;color:var(--primary);margin-bottom:14px">SEMANA 1</p>
+      <h4 style="font-size:22px;margin-bottom:10px">A gente desenha</h4>
+      <p style="font-size:15px;color:var(--muted)">Você navega um protótipo. Sem código ainda, só os caminhos do software. Aprova, ou voltamos para a prancheta.</p>
+    </div>
+    <div style="padding:32px;border-right:1px solid var(--line)">
+      <p style="font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.12em;color:var(--primary);margin-bottom:14px">SEMANA 4</p>
+      <h4 style="font-size:22px;margin-bottom:10px">Construímos junto</h4>
+      <p style="font-size:15px;color:var(--muted)">Entregas incrementais toda semana. Você vê o software crescer, então não existe surpresa no final.</p>
+    </div>
+    <div style="padding:32px 0 32px 32px">
+      <p style="font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.12em;color:var(--primary);margin-bottom:14px">DEPOIS</p>
+      <h4 style="font-size:22px;margin-bottom:10px">A gente fica</h4>
+      <p style="font-size:15px;color:var(--muted)">Suporte e evolução depois do lançamento. Software em produção precisa de quem cuide dele.</p>
+    </div>
+  </div>
+</section>
+
+<section id="trabalhar" data-screen-label="Como trabalhamos" style="margin-top:136px;background:var(--primary);color:#fff;padding:clamp(72px,9vw,120px) 0">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,40px)">
+    <div data-g="2" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:72px">
+      <div>
+        <p style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#C9C4FA;margin-bottom:20px">Como trabalhamos juntos</p>
+        <h2 style="font-size:clamp(30px,5vw,64px);color:#fff;max-width:14ch">Três formas de <span style="font-family:var(--serif);font-style:italic;font-weight:400">começar</span> com a Auri.</h2>
+      </div>
+      <p style="color:#C9C4FA;font-size:18px;padding-bottom:8px">Escolha pelo que você precisa hoje. Todas começam pela mesma conversa de trinta minutos, sem custo e sem compromisso.</p>
+    </div>
+
+    <div data-g="3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div style="background:#fff;color:var(--ink);border-radius:20px;padding:40px;display:flex;flex-direction:column">
+        <span style="font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.12em;color:var(--primary);margin-bottom:24px">01 · LICENCIAR</span>
+        <h3 style="font-size:clamp(24px,2.6vw,32px);margin-bottom:14px">Um produto que já existe</h3>
+        <p style="color:var(--muted);margin-bottom:28px">Você adota um dos quatro produtos, com implantação, migração de dados e treinamento da sua equipe inclusos.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 32px;display:grid;gap:12px;flex:1">
+          <li style="display:flex;gap:12px;font-size:15px"><span style="color:var(--primary);font-weight:600">✓</span>No ar em semanas, não em meses</li>
+          <li style="display:flex;gap:12px;font-size:15px"><span style="color:var(--primary);font-weight:600">✓</span>Multi-tenant e LGPD por padrão</li>
+          <li style="display:flex;gap:12px;font-size:15px"><span style="color:var(--primary);font-weight:600">✓</span>Suporte e evolução contínuos</li>
+        </ul>
+        <a href="#contato" style="font-size:15px;font-weight:500;text-align:center;color:#fff;background:var(--ink);padding:15px;border-radius:999px;transition:background .25s" style-hover="background:var(--primary);color:#fff">Quero licenciar</a>
+      </div>
+
+      <div data-offer-hi style="background:#fff;color:var(--ink);border-radius:20px;padding:40px;display:flex;flex-direction:column;position:relative;box-shadow:0 24px 60px rgba(20,20,28,.28);transform:translateY(-16px)">
+        <span style="position:absolute;top:-13px;left:40px;background:var(--ink);color:#fff;font-size:12px;font-weight:600;letter-spacing:.08em;padding:5px 14px;border-radius:999px">MAIS PROCURADO</span>
+        <span style="font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.12em;color:var(--primary);margin-bottom:24px">02 · CONSTRUIR</span>
+        <h3 style="font-size:clamp(24px,2.6vw,32px);margin-bottom:14px">Software sob medida</h3>
+        <p style="color:var(--muted);margin-bottom:28px">Seu problema não tem produto pronto. A gente desenha, constrói e opera junto com você, por sprints de preço e prazo fechados.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 32px;display:grid;gap:12px;flex:1">
+          <li style="display:flex;gap:12px;font-size:15px"><span style="color:var(--primary);font-weight:600">✓</span>Protótipo navegável em uma semana</li>
+          <li style="display:flex;gap:12px;font-size:15px"><span style="color:var(--primary);font-weight:600">✓</span>Preço e prazo fechados por sprint</li>
+          <li style="display:flex;gap:12px;font-size:15px"><span style="color:var(--primary);font-weight:600">✓</span>Software real rodando em 4 a 6 semanas</li>
+        </ul>
+        <a href="#contato" style="font-size:15px;font-weight:500;text-align:center;color:#fff;background:var(--primary);padding:15px;border-radius:999px;transition:transform .25s" style-hover="transform:translateY(-2px);color:#fff">Quero construir</a>
+      </div>
+
+      <div style="background:#fff;color:var(--ink);border-radius:20px;padding:40px;display:flex;flex-direction:column">
+        <span style="font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.12em;color:var(--primary);margin-bottom:24px">03 · AUTOMATIZAR</span>
+        <h3 style="font-size:clamp(24px,2.6vw,32px);margin-bottom:14px">Processos no piloto automático</h3>
+        <p style="color:var(--muted);margin-bottom:28px">Seus sistemas e canais conversando entre si, para atender mais clientes sem aumentar o time.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 32px;display:grid;gap:12px;flex:1">
+          <li style="display:flex;gap:12px;font-size:15px"><span style="color:var(--primary);font-weight:600">✓</span>Atendimento e agendamento por WhatsApp</li>
+          <li style="display:flex;gap:12px;font-size:15px"><span style="color:var(--primary);font-weight:600">✓</span>Lead qualificado direto no seu CRM</li>
+          <li style="display:flex;gap:12px;font-size:15px"><span style="color:var(--primary);font-weight:600">✓</span>Primeiros fluxos no ar em 2 a 4 semanas</li>
+        </ul>
+        <a href="#contato" style="font-size:15px;font-weight:500;text-align:center;color:#fff;background:var(--ink);padding:15px;border-radius:999px;transition:background .25s" style-hover="background:var(--primary);color:#fff">Quero automatizar</a>
+      </div>
+    </div>
+
+    <div style="margin-top:64px;padding-top:36px;border-top:1px solid rgba(255,255,255,.22);display:flex;flex-wrap:wrap;gap:20px 48px;align-items:baseline">
+      <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#C9C4FA">Onde a automação já entrega</span>
+      <span style="font-size:17px;color:#fff">Escritórios de advocacia</span>
+      <span style="font-size:17px;color:#fff">Clínicas e consultórios</span>
+      <span style="font-size:17px;color:#fff">Atendimento ao cliente</span>
+    </div>
+  </div>
+</section>
+
+<section id="contato" data-screen-label="Contato" style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,136px) clamp(20px,5vw,40px) 0">
+  <div data-g="2" style="display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start">
+    <div>
+      <p style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);margin-bottom:20px">Fale com a gente</p>
+      <h2 style="font-size:clamp(34px,5.6vw,72px);max-width:11ch;margin-bottom:28px">Trinta minutos. <span style="font-family:var(--serif);font-style:italic;font-weight:400">Sem custo.</span></h2>
+      <p style="color:var(--muted);font-size:18px;margin-bottom:44px;max-width:420px">Você sai da conversa com um diagnóstico honesto do seu problema, mesmo que a resposta seja que a Auri não é a melhor opção para ele.</p>
+      <dl style="margin:0">
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-top:1px solid var(--line)">
+          <dt style="color:var(--muted);font-size:15px">E-mail</dt>
+          <dd style="margin:0"><a href="mailto:aurisolutions@gmail.com" style="font-weight:500">aurisolutions@gmail.com</a></dd>
+        </div>
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-top:1px solid var(--line)">
+          <dt style="color:var(--muted);font-size:15px">Horário</dt>
+          <dd style="margin:0;font-size:15px">Segunda a sexta, 9h às 18h</dd>
+        </div>
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+          <dt style="color:var(--muted);font-size:15px">Resposta</dt>
+          <dd style="margin:0;font-size:15px">Em até 24 horas úteis</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div style="background:var(--paper-2);border-radius:20px;padding:44px">
+      <div style="display:grid;gap:22px">
+        <div data-form-row style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
+          <label style="display:block">
+            <span style="display:block;font-size:13px;font-weight:500;color:var(--muted);margin-bottom:9px">Nome</span>
+            <input type="text" placeholder="Seu nome" style="width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);outline:none" style-focus="border-color:var(--primary)">
+          </label>
+          <label style="display:block">
+            <span style="display:block;font-size:13px;font-weight:500;color:var(--muted);margin-bottom:9px">Empresa</span>
+            <input type="text" placeholder="Nome da empresa" style="width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);outline:none" style-focus="border-color:var(--primary)">
+          </label>
+        </div>
+        <label style="display:block">
+          <span style="display:block;font-size:13px;font-weight:500;color:var(--muted);margin-bottom:9px">E-mail</span>
+          <input type="email" placeholder="seu@empresa.com.br" style="width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);outline:none" style-focus="border-color:var(--primary)">
+        </label>
+        <label style="display:block">
+          <span style="display:block;font-size:13px;font-weight:500;color:var(--muted);margin-bottom:9px">O que você precisa</span>
+          <select style="width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);outline:none;cursor:pointer">
+            <option>Licenciar um produto</option>
+            <option>Construir software sob medida</option>
+            <option>Automatizar processos</option>
+            <option>Ainda não sei</option>
+          </select>
+        </label>
+        <label style="display:block">
+          <span style="display:block;font-size:13px;font-weight:500;color:var(--muted);margin-bottom:9px">Mensagem</span>
+          <textarea rows="5" placeholder="Conte sobre seu projeto ou necessidade" style="width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);outline:none;resize:vertical" style-focus="border-color:var(--primary)"></textarea>
+        </label>
+        <button type="button" style="width:100%;padding:17px;border-radius:999px;border:none;background:var(--primary);color:#fff;font-size:16px;font-weight:500;cursor:pointer;transition:transform .25s,box-shadow .25s;box-shadow:0 6px 24px rgba(58,47,214,.22)" style-hover="transform:translateY(-2px);box-shadow:0 12px 32px rgba(58,47,214,.3)">Enviar mensagem</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="max-width:1240px;margin:clamp(72px,10vw,136px) auto 0;padding:0 clamp(20px,5vw,40px) 56px">
+  <div style="border-top:1px solid var(--line);padding-top:36px;display:flex;align-items:flex-start;justify-content:space-between;gap:48px;flex-wrap:wrap">
+    <div>
+      <p style="font-family:var(--display);font-weight:600;font-size:22px;letter-spacing:-0.03em;margin-bottom:10px">AuriSolutions</p>
+      <p style="font-size:15px;color:var(--muted);max-width:280px">Estúdio de produtos digitais verticais. Quatro produtos em produção e desenvolvimento sob medida.</p>
+    </div>
+    <div style="display:flex;gap:64px">
+      <div style="display:grid;gap:10px">
+        <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px">Produtos</span>
+        <a href="#" style="font-size:15px;color:var(--ink)" style-hover="color:var(--primary)">Acolheduc</a>
+        <a href="#" style="font-size:15px;color:var(--ink)" style-hover="color:var(--primary)">NexusVR</a>
+        <a href="#" style="font-size:15px;color:var(--ink)" style-hover="color:var(--primary)">Lumina</a>
+        <a href="#" style="font-size:15px;color:var(--ink)" style-hover="color:var(--primary)">Coldre System</a>
+      </div>
+      <div style="display:grid;gap:10px">
+        <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px">Serviços</span>
+        <a href="#sob-medida" style="font-size:15px;color:var(--ink)" style-hover="color:var(--primary)">Sob medida</a>
+        <a href="#trabalhar" style="font-size:15px;color:var(--ink)" style-hover="color:var(--primary)">Automações</a>
+        <a href="#contato" style="font-size:15px;color:var(--ink)" style-hover="color:var(--primary)">Contato</a>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:44px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap">
+    <span style="font-size:14px;color:var(--muted)">© 2026 AuriSolutions. Todos os direitos reservados.</span>
+    <span style="font-size:14px;color:var(--muted)">LGPD compliant · 99,9% uptime · Multi-tenant ready</span>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240}}"></script>
+</body>
+</html>
